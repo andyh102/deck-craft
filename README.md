@@ -1,8 +1,8 @@
-# Deck Craft
+# DeckCraft
 
 Turn a plain Markdown file into a polished, presentable slide deck — one
 self-contained HTML file, no server, no dependencies beyond Python 3's
-standard library. 31 slide types, 4 built-in visual themes, optional
+standard library. 31 slide types, 8 built-in visual themes, optional
 PowerPoint/PDF export, all offline.
 
 **This is a universal AI skill, not a Claude-only plugin.** It's just a folder:
@@ -49,10 +49,14 @@ those two tokens on top of whichever theme you pick.
 
 | theme | look |
 |---|---|
-| `corporate` (default) | clean white deck, blue accent, dark navy cover/section/stats/closing |
-| `minimal-mono` | grayscale, flat panels, no top bar |
-| `dark-tech` | dark throughout, indigo/cyan accent, monospace type |
-| `warm-editorial` | warm cream background, serif type, terracotta accent |
+| `modern` (default) | dark throughout, one accent blue, greyscale otherwise |
+| `professional` | light navy-on-oat, serif headings, gold rule under titles |
+| `dark` | dark surface, teal accent, cards lift with fill not shadow |
+| `light` | no colour at all, huge margins, light-weight type |
+| `editorial` | warm cream, serif display, magazine-style pull quotes |
+| `technical` | monospace headings, teal accent, amber for outliers |
+| `bold` | pure black, full-bleed yellow-green type, red colour-flip |
+| `warm` | warm tan, serif display, terracotta accent, rounded corners |
 
 ## What's in here
 
@@ -74,7 +78,7 @@ commercially or otherwise. Bundled third-party JS libraries keep their own
 
 ## Support
 
-Deck Craft is free. If it's useful to you, you're welcome to buy me a coffee
+DeckCraft is free. If it's useful to you, you're welcome to buy me a coffee
 — entirely optional, no features are gated behind it.
 <!-- TODO: add your Buy Me a Coffee link once the account exists, e.g.
      [buy me a coffee](https://buymeacoffee.com/<your-handle>) -->

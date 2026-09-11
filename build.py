@@ -44,67 +44,145 @@ PDF_EXPORT = True
 SELF_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # ---- themes -----------------------------------------------------------
-# A theme is a bundle of design tokens (colors, font, chrome). Pick one with
+# A theme is a bundle of design tokens (colors, fonts, chrome). Pick one with
 # `theme:` in front matter; `accent:` / `font:` in front matter override just
 # those two tokens on top of whichever theme is chosen. See resolve_theme().
-DEFAULT_THEME = "corporate"
+#
+# `font` is the functional/body face (body copy, labels, numbers, chrome);
+# `font_display` is used only for slide headlines (cover/section titles,
+# `head()`'s title, statement, quote, closing) — see FONT_DISPLAY_FONT below.
+# `hot` is the "highlighted item" color used by grid-2x2's `*`-prefixed cell
+# and bar-chart's `*`-prefixed bar; it defaults to `accent` and only differs
+# where a theme calls for a second, distinct highlight color.
+DEFAULT_THEME = "modern"
 
 THEMES = {
-    # Clean light deck, blue accent, dark navy cover/section/stats/closing.
-    "corporate": {
-        "ink": "#101114", "ink_soft": "#3c4048", "muted": "#8a9099", "line": "#e7e9ee",
-        "bg": "#ffffff", "accent": "#2563eb",
-        "font": '"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif',
-        "dark_bg": "radial-gradient(circle farthest-corner at 100% 0%,#1e293b 0%,#0f172a 50%,#020617 100%)",
-        "head_bg": "#101114",
-        "topbar_bg": "var(--accent)", "topbar_h": "6px",
-        "panel_grad": "linear-gradient(180deg,#fbfcff,#f2f4fb)", "panel_flat": "#f2f4fb",
-        "accent_soft": "linear-gradient(180deg,#eaf0ff,#dbe6ff)", "row_alt": "#f8f9fb",
-        "radius": "18px", "shadow": "0 24px 70px rgba(10,12,25,.45)",
+    # One accent blue on greyscale, dark throughout. Left-aligned, no rules, no shadows.
+    "modern": {
+        "ink": "#f2f3f5", "ink_soft": "#c7c9d1", "muted": "#8a8f99", "line": "rgba(255,255,255,.12)",
+        "bg": "#101114", "accent": "#7b90ff", "hot": "var(--accent)",
+        "font": '"Archivo","Helvetica Neue",Arial,sans-serif',
+        "font_display": '"Archivo","Helvetica Neue",Arial,sans-serif',
+        "dark_bg": "radial-gradient(circle farthest-corner at 100% 0%,#1b1d22 0%,#0a0a0c 60%,#000000 100%)",
+        "head_bg": "#000000",
+        "topbar_bg": "none", "topbar_h": "0px",
+        "panel_grad": "linear-gradient(180deg,#17181c,#101114)", "panel_flat": "#17181c",
+        "accent_soft": "linear-gradient(180deg,#1c2440,#141a30)", "row_alt": "#17181c",
+        "radius": "4px", "shadow": "none",
     },
-    # Grayscale, no top bar, flat panels — quiet and understated.
-    "minimal-mono": {
-        "ink": "#111111", "ink_soft": "#454545", "muted": "#8a8a8a", "line": "#e4e4e4",
-        "bg": "#ffffff", "accent": "#111111",
-        "font": '"Helvetica Neue",Arial,"Segoe UI",sans-serif',
+    # Serif headings, navy authority, thin gold rule under every title.
+    "professional": {
+        "ink": "#14284b", "ink_soft": "#2e4568", "muted": "#4a5d78", "line": "#d7dee8",
+        "bg": "#edf1f6", "accent": "#7e6122", "hot": "var(--accent)",
+        "font": '"Libre Franklin","Helvetica Neue",Arial,sans-serif',
+        "font_display": '"Spectral",Georgia,"Times New Roman",serif',
+        "dark_bg": "radial-gradient(circle farthest-corner at 100% 0%,#1c3862 0%,#14284b 55%,#0b1930 100%)",
+        "head_bg": "#0b1930",
+        "topbar_bg": "var(--accent)", "topbar_h": "3px",
+        "panel_grad": "linear-gradient(180deg,#ffffff,#edf1f6)", "panel_flat": "#e3e9f2",
+        "accent_soft": "linear-gradient(180deg,#f7f1e2,#efe6d0)", "row_alt": "#e3e9f2",
+        "radius": "6px", "shadow": "0 20px 50px rgba(20,40,75,.12)",
+    },
+    # Dark surface that lifts with a lighter fill, never a shadow. Teal accent.
+    "dark": {
+        "ink": "#e8e9ec", "ink_soft": "#c5c8ce", "muted": "#7a8089", "line": "rgba(255,255,255,.10)",
+        "bg": "#0c0d10", "accent": "#38e1c0", "hot": "var(--accent)",
+        "font": '"Sora","Helvetica Neue",Arial,sans-serif',
+        "font_display": '"Sora","Helvetica Neue",Arial,sans-serif',
+        "dark_bg": "radial-gradient(circle farthest-corner at 100% 0%,#1b1e24 0%,#0c0d10 60%,#000000 100%)",
+        "head_bg": "#060708",
+        "topbar_bg": "var(--accent)", "topbar_h": "3px",
+        "panel_grad": "linear-gradient(180deg,#1b1d23,#16181d)", "panel_flat": "#16181d",
+        "accent_soft": "linear-gradient(180deg,#173330,#122824)", "row_alt": "#16181d",
+        "radius": "12px", "shadow": "none",
+    },
+    # No colour at all. One idea per slide, huge margins, light weights only.
+    "light": {
+        "ink": "#111111", "ink_soft": "#444444", "muted": "#767676", "line": "#e6e6e6",
+        "bg": "#ffffff", "accent": "#767676", "hot": "var(--accent)",
+        "font": '"Libre Franklin","Helvetica Neue",Arial,sans-serif',
+        "font_display": '"Libre Franklin","Helvetica Neue",Arial,sans-serif',
         "dark_bg": "#111111",
         "head_bg": "#111111",
         "topbar_bg": "none", "topbar_h": "0px",
-        "panel_grad": "#fafafa", "panel_flat": "#f0f0f0",
-        "accent_soft": "#ececec", "row_alt": "#f7f7f7",
-        "radius": "2px", "shadow": "0 12px 32px rgba(0,0,0,.12)",
+        "panel_grad": "#fafafa", "panel_flat": "#f2f2f2",
+        "accent_soft": "#ededed", "row_alt": "#f7f7f7",
+        "radius": "2px", "shadow": "0 12px 32px rgba(0,0,0,.08)",
     },
-    # Dark throughout, neon accent, monospace — a technical/engineering feel.
-    "dark-tech": {
-        "ink": "#e6faff", "ink_soft": "#a8c4cc", "muted": "#6f8890", "line": "rgba(255,255,255,.12)",
-        "bg": "#0b1416", "accent": "#6366f1",
-        "font": '"JetBrains Mono","SFMono-Regular",Consolas,monospace',
-        "dark_bg": "radial-gradient(circle farthest-corner at 100% 0%,#132226 0%,#060b0c 60%,#000000 100%)",
-        "head_bg": "#050b0c",
-        "topbar_bg": "linear-gradient(90deg,#22d3ee,#6366f1)", "topbar_h": "4px",
-        "panel_grad": "linear-gradient(180deg,#101c1f,#0c1719)", "panel_flat": "#101c1f",
-        "accent_soft": "linear-gradient(180deg,#123036,#0d2226)", "row_alt": "#0e181a",
-        "radius": "10px", "shadow": "0 24px 70px rgba(0,0,0,.6)",
+    # Magazine logic: pull quotes, italic captions, titles that can run three lines.
+    "editorial": {
+        "ink": "#1b1a17", "ink_soft": "#3a362e", "muted": "#8a8070", "line": "#e4dac5",
+        "bg": "#faf6ee", "accent": "#b3261e", "hot": "var(--accent)",
+        "font": '"Spectral",Georgia,serif',
+        "font_display": '"Instrument Serif",Georgia,serif',
+        "dark_bg": "linear-gradient(160deg,#2e2a22 0%,#1b1a17 100%)",
+        "head_bg": "#1b1a17",
+        "topbar_bg": "var(--accent)", "topbar_h": "3px",
+        "panel_grad": "linear-gradient(180deg,#fffdf7,#f5efe0)", "panel_flat": "#f2eada",
+        "accent_soft": "linear-gradient(180deg,#f8e0dc,#f0cac4)", "row_alt": "#f4eee0",
+        "radius": "10px", "shadow": "0 20px 50px rgba(27,26,23,.15)",
     },
-    # Warm cream, serif type, terracotta accent — a softer, editorial feel.
-    "warm-editorial": {
-        "ink": "#2b2420", "ink_soft": "#5a4f47", "muted": "#948578", "line": "#e6ddd0",
-        "bg": "#fbf6ee", "accent": "#c2542c",
-        "font": 'Georgia,"Iowan Old Style","Palatino Linotype",serif',
-        "dark_bg": "linear-gradient(160deg,#3a2e26 0%,#241a15 100%)",
-        "head_bg": "#2b2420",
+    # Charts are the slide. Mono labels, amber reserved for the outlier.
+    "technical": {
+        "ink": "#0f1b1f", "ink_soft": "#2a3b3f", "muted": "#6d7a7d", "line": "#dce2e2",
+        "bg": "#f7f8f8", "accent": "#0e6e6e", "hot": "#d98a0b",
+        "font": '"Libre Franklin","Helvetica Neue",Arial,sans-serif',
+        "font_display": '"IBM Plex Mono","SFMono-Regular",Consolas,monospace',
+        "dark_bg": "radial-gradient(circle farthest-corner at 100% 0%,#173a3a 0%,#0c1f1f 55%,#020a0a 100%)",
+        "head_bg": "#0c1f1f",
+        "topbar_bg": "var(--accent)", "topbar_h": "3px",
+        "panel_grad": "linear-gradient(180deg,#ffffff,#eff3f3)", "panel_flat": "#ebf0f0",
+        "accent_soft": "linear-gradient(180deg,#dff2f0,#c9e8e4)", "row_alt": "#eef2f2",
+        "radius": "6px", "shadow": "0 16px 40px rgba(15,27,31,.12)",
+    },
+    # Type fills the frame edge to edge. Six words maximum. One colour flip.
+    "bold": {
+        "ink": "#ffffff", "ink_soft": "#d8d8d8", "muted": "#8c8c8c", "line": "rgba(255,255,255,.18)",
+        "bg": "#000000", "accent": "#f2ff49", "hot": "#ff3d2e",
+        "font": '"Archivo","Helvetica Neue",Arial,sans-serif',
+        "font_display": '"Archivo","Helvetica Neue",Arial,sans-serif',
+        "dark_bg": "#000000",
+        "head_bg": "#000000",
+        "topbar_bg": "none", "topbar_h": "0px",
+        "panel_grad": "linear-gradient(180deg,#141414,#000000)", "panel_flat": "#0d0d0d",
+        "accent_soft": "linear-gradient(180deg,#3a3600,#262300)", "row_alt": "#0d0d0d",
+        "radius": "0px", "shadow": "none",
+    },
+    # Rounded corners, photography over flat colour, hand-set captions.
+    "warm": {
+        "ink": "#4a3728", "ink_soft": "#6b5240", "muted": "#8a7c6c", "line": "#e3d6c4",
+        "bg": "#f3e9dc", "accent": "#9b3f23", "hot": "var(--accent)",
+        "font": '"Sora","Helvetica Neue",Arial,sans-serif',
+        "font_display": '"Lora",Georgia,serif',
+        "dark_bg": "linear-gradient(160deg,#4a3728 0%,#2e2015 100%)",
+        "head_bg": "#2e2015",
         "topbar_bg": "var(--accent)", "topbar_h": "4px",
-        "panel_grad": "linear-gradient(180deg,#fffdf9,#f6efe4)", "panel_flat": "#f3ead9",
-        "accent_soft": "linear-gradient(180deg,#f6e3d6,#f1d5c1)", "row_alt": "#f5efe3",
-        "radius": "14px", "shadow": "0 20px 50px rgba(40,25,10,.25)",
+        "panel_grad": "linear-gradient(180deg,#faf4ec,#f0e3d2)", "panel_flat": "#eddfc9",
+        "accent_soft": "linear-gradient(180deg,#f3ded2,#ecccb8)", "row_alt": "#efe1cc",
+        "radius": "18px", "shadow": "0 20px 50px rgba(74,55,40,.18)",
     },
+}
+
+# Renamed-theme aliases: the old id keeps working (mapped to its closest new
+# theme) but prints a warning pointing at the new name, so an existing deck
+# never silently breaks.
+THEME_ALIASES = {
+    "corporate": "modern",
+    "minimal-mono": "light",
+    "dark-tech": "dark",
+    "warm-editorial": "warm",
 }
 
 def resolve_theme(meta):
     """Merge the named theme's tokens with any accent:/font: override from
-    front matter. Falls back to DEFAULT_THEME (with a warning) on an unknown
-    theme name."""
+    front matter. Resolves a renamed alias (with a warning) and falls back to
+    DEFAULT_THEME (with a warning) on an unknown theme name."""
     name = (meta.get("theme") or DEFAULT_THEME).strip().lower()
+    if name in THEME_ALIASES:
+        new_name = THEME_ALIASES[name]
+        WARNINGS.append("theme '%s' has been renamed to '%s' -> using '%s' "
+                        "(update your deck.md)" % (name, new_name, new_name))
+        name = new_name
     base = THEMES.get(name)
     if base is None:
         WARNINGS.append("unknown theme '%s' -> %s (options: %s)"
@@ -121,13 +199,13 @@ def resolve_theme(meta):
 ROOT_CSS = """
 :root{
   --ink:%INK%; --ink-soft:%INK_SOFT%; --muted:%MUTED%; --line:%LINE%;
-  --bg:%BG%; --accent:%ACCENT%;
+  --bg:%BG%; --accent:%ACCENT%; --hot:%HOT%;
   --radius:%RADIUS%; --shadow:%SHADOW%;
   --dark-bg:%DARK_BG%; --head-bg:%HEAD_BG%;
   --topbar-bg:%TOPBAR_BG%; --topbar-h:%TOPBAR_H%;
   --panel-grad:%PANEL_GRAD%; --panel-flat:%PANEL_FLAT%; --accent-soft:%ACCENT_SOFT%;
   --row-alt:%ROW_ALT%;
-  --font:%FONT%;
+  --font:%FONT%; --font-display:%FONT_DISPLAY%;
   --type-title:64px; --type-h2:48px; --type-h3:38px; --type-subtitle:28px;
   --type-body:24px; --type-small:24px; --type-label:24px; --type-footer:24px;
   --pad-x:64px; --pad-top:48px; --pad-bot:48px; --gap-title:40px; --gap-item:20px;
@@ -503,7 +581,7 @@ def head(title, subtitle=None, dark=False):
            'color:%s;font-weight:500;margin-top:10px;">%s</div>' % (sc, inline(subtitle))
            ) if subtitle else ""
     return ('<div style="margin-bottom:var(--gap-title);">'
-            '<div style="font-family:var(--font);font-size:var(--type-h2);font-weight:800;'
+            '<div style="font-family:var(--font-display);font-size:var(--type-h2);font-weight:800;'
             'letter-spacing:-.02em;color:%s;line-height:1.05;">%s</div>%s</div>'
             ) % (tc, inline(title), sub)
 
@@ -631,7 +709,7 @@ def r_cover(s, ctx):
                  f'{image(logo, "height:80px;width:auto;", ctx["assets"], "logo")}</div>'
                  ) if logo else ""
     inner = (f'{logo_html}'
-             f'<div style="font-family:var(--font);font-size:var(--type-title);font-weight:800;'
+             f'<div style="font-family:var(--font-display);font-size:var(--type-title);font-weight:800;'
              f'letter-spacing:-.03em;color:#fff;line-height:1.05;margin-bottom:20px;">{inline(title)}</div>'
              f'<div style="font-family:var(--font);font-size:var(--type-subtitle);'
              f'color:rgba(255,255,255,.55);letter-spacing:.06em;text-transform:uppercase;'
@@ -644,7 +722,7 @@ def r_section(s, ctx):
     inner = (f'<div style="font-family:var(--font);font-size:var(--type-label);font-weight:600;'
              f'color:rgba(255,255,255,.45);letter-spacing:.12em;text-transform:uppercase;'
              f'margin-bottom:28px;">{inline(eyebrow)}</div>'
-             f'<div style="font-family:var(--font);font-size:80px;font-weight:800;'
+             f'<div style="font-family:var(--font-display);font-size:80px;font-weight:800;'
              f'letter-spacing:-.03em;color:#fff;line-height:1;">'
              f'{inline(f.get("title", "Section Title"))}</div>')
     return stage(inner, center=True), True
@@ -743,8 +821,8 @@ def r_grid2x2(s, ctx):
         hot = it["text"].startswith("*")
         label, stmt = split_item(it["text"].lstrip("*").strip(), 2)
         if hot:
-            box = "border:2px solid var(--accent);background:var(--accent-soft);"
-            tc = "var(--accent)"
+            box = "border:2px solid var(--hot);background:var(--accent-soft);"
+            tc = "var(--hot)"
         else:
             box = "border:2px solid var(--line);background:var(--panel-grad);"
             tc = "var(--ink)"
@@ -896,9 +974,9 @@ def r_quote(s, ctx):
     quote = f.get("quote") or " ".join(f.get("_body", [])) or "Quotation text."
     author = f.get("author", "Speaker Name")
     role = f.get("role", "Title, Organisation")
-    inner = (f'<div style="font-family:var(--font);font-size:80px;color:var(--accent);'
+    inner = (f'<div style="font-family:var(--font-display);font-size:80px;color:var(--accent);'
              f'line-height:.8;font-weight:800;margin-bottom:20px;">&#8220;</div>'
-             f'<div style="font-family:var(--font);font-size:52px;line-height:1.2;color:var(--ink);'
+             f'<div style="font-family:var(--font-display);font-size:52px;line-height:1.2;color:var(--ink);'
              f'font-weight:800;max-width:1400px;letter-spacing:-.02em;margin-bottom:56px;">'
              f'{inline(quote)}</div>'
              f'<div style="display:flex;align-items:center;gap:24px;">'
@@ -1022,7 +1100,7 @@ def r_closing(s, ctx):
     inner = (f'<div style="font-family:var(--font);font-size:var(--type-label);color:rgba(255,255,255,.4);'
              f'letter-spacing:.12em;text-transform:uppercase;font-weight:600;margin-bottom:32px;">'
              f'{inline(f.get("eyebrow", "Thank You"))}</div>'
-             f'<div style="font-family:var(--font);font-size:80px;font-weight:800;letter-spacing:-.03em;'
+             f'<div style="font-family:var(--font-display);font-size:80px;font-weight:800;letter-spacing:-.03em;'
              f'color:#fff;line-height:1;margin-bottom:56px;">{inline(f.get("title", "Questions?"))}</div>'
              f'<div style="display:flex;align-items:center;gap:56px;">{row}</div>')
     return stage(inner, center=True), True
@@ -1088,8 +1166,8 @@ def r_bar_chart(s, ctx):
     cols = ""
     for label, raw, v, hot in vals:
         hpx = max(6, round(v / peak * CH))
-        fill = "var(--accent)" if hot else "var(--accent-soft)"
-        vc = "var(--accent)" if hot else "var(--ink)"
+        fill = "var(--hot)" if hot else "var(--accent-soft)"
+        vc = "var(--hot)" if hot else "var(--ink)"
         cols += (f'<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:14px;">'
                  f'<div style="font-family:var(--font);font-size:var(--type-body);font-weight:800;'
                  f'color:{vc};">{inline(raw)}</div>'
@@ -1202,7 +1280,7 @@ def r_statement(s, ctx):
     bar = ('<div style="width:72px;height:6px;border-radius:3px;background:var(--accent);'
            'margin-bottom:40px;"></div>')
     inner = (f'{eb}{bar}'
-             f'<div style="font-family:var(--font);font-size:64px;font-weight:800;'
+             f'<div style="font-family:var(--font-display);font-size:64px;font-weight:800;'
              f'letter-spacing:-.02em;color:#fff;line-height:1.18;max-width:1500px;">'
              f'{inline(text)}</div>')
     return stage(inner, center=True), True

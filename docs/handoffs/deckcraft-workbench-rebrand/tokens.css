@@ -1,0 +1,54 @@
+/* DeckCraft — brand tokens (direction 1b "Workbench")
+   Translate into the target codebase's own token system rather than shipping as-is. */
+:root {
+  /* Colour */
+  --dc-charcoal: #2B2724;
+  --dc-terracotta: #C4593B;        /* large fills and 24px+ type only */
+  --dc-terracotta-strong: #A9472C; /* actions and all small text — AA safe */
+  --dc-terracotta-deep: #8E3A22;   /* primary hover */
+  --dc-cream: #FBF7F1;
+  --dc-oat: #EFE4D6;
+  --dc-white: #FFFFFF;
+  --dc-sage: #5C6B52;              /* success only */
+
+  --dc-border: #E4DACE;
+  --dc-border-soft: #EFE4D6;
+  --dc-divider: #F0E8DE;
+
+  --dc-text: #2B2724;
+  --dc-text-body: #4A423B;
+  --dc-text-muted: #6B5F55;
+  --dc-text-caption: #6E6459;
+  --dc-text-on-dark: #FBF7F1;
+  --dc-text-on-dark-muted: #EFE4D6;
+
+  /* Type */
+  --dc-font-display: 'Lora', Georgia, serif;
+  --dc-font-ui: 'Sora', system-ui, sans-serif;
+
+  --dc-display: 50px;  --dc-display-lh: 1.0;   --dc-display-ls: -0.02em;
+  --dc-h1: 42px;       --dc-h1-lh: 1.08;       --dc-h1-ls: -0.02em;
+  --dc-h2: 30px;       --dc-h2-lh: 1.15;       --dc-h2-ls: -0.015em;
+  --dc-h3: 23px;       --dc-h3-lh: 1.2;        --dc-h3-ls: -0.01em;
+  --dc-body: 16px;     --dc-body-lh: 1.68;
+  --dc-body-sm: 15px;  --dc-body-sm-lh: 1.65;
+  --dc-caption: 12px;
+  --dc-label: 11px;    --dc-label-ls: 0.16em;
+
+  /* Space */
+  --dc-s1: 4px;  --dc-s2: 8px;  --dc-s3: 12px; --dc-s4: 16px; --dc-s5: 20px;
+  --dc-s6: 24px; --dc-s7: 32px; --dc-s8: 40px; --dc-s9: 48px; --dc-s10: 64px;
+
+  /* Shape */
+  --dc-r-field: 12px;
+  --dc-r-swatch: 14px;
+  --dc-r-card: 16px;
+  --dc-r-panel: 20px;
+  --dc-r-pill: 999px;
+
+  /* Motion */
+  --dc-ease: cubic-bezier(0.2, 0, 0.2, 1);
+  --dc-dur-fast: 160ms;
+  --dc-dur-panel: 240ms;
+}
+/* No shadow tokens: the system uses surface colour and 1px borders for separation. */

@@ -18,7 +18,7 @@ description: >-
   closing.
 ---
 
-# Deck Craft
+# DeckCraft
 
 Generate a presentation by writing a Markdown source file and running
 `build.py`. Output is a single portable `.html` file — no server, no
@@ -73,14 +73,23 @@ chosen — so a theme is a starting point, not a lock-in.
 
 | theme | look | good for |
 |---|---|---|
-| `corporate` (default) | clean white deck, blue accent, dark navy cover/section/stats/closing, thin accent top bar | reviews, readouts, most business decks |
-| `minimal-mono` | grayscale, flat panels, no top bar | understated, text-forward decks |
-| `dark-tech` | dark throughout, indigo/cyan accent, monospace type | engineering reviews, technical deep-dives |
-| `warm-editorial` | warm cream background, serif type, terracotta accent | narrative, culture, or story-led decks |
+| `modern` (default) | dark throughout, one accent blue, greyscale otherwise, no rules or shadows | product/startup reviews, crisp one-slide-at-a-time decks |
+| `professional` | light navy-on-oat deck, serif headings, thin gold rule under every title | operating reviews, board-level decks |
+| `dark` | dark surface, teal accent, cards lift with a lighter fill (never a shadow) | decks presented in a dim room |
+| `light` | no colour at all, huge margins, light-weight type | one-idea-per-slide, minimal decks |
+| `editorial` | warm cream background, serif display, magazine-style pull quotes | narrative, culture, or story-led decks |
+| `technical` | light, monospace headings, teal accent with amber reserved for outliers | engineering reviews, metrics-heavy decks |
+| `bold` | pure black, full-bleed yellow-green type, a single red colour-flip for emphasis | high-impact, few-words-per-slide decks |
+| `warm` | warm tan background, serif display, terracotta accent, rounded corners | founder stories, warmer pitches |
 
-If the user doesn't name a theme, default to `corporate` — ask only if the
-occasion clearly calls for a different feel (e.g. "keep it dark and techy" →
-`dark-tech`).
+If the user doesn't name a theme, default to `modern` — ask only if the
+occasion clearly calls for a different feel (e.g. "keep it warm and personal" →
+`warm`).
+
+The four earlier theme names (`corporate`, `minimal-mono`, `dark-tech`,
+`warm-editorial`) still work — they're aliased to their closest replacement
+(`modern`, `light`, `dark`, `warm`) with a build warning — but prefer the
+current names above for new decks.
 
 ## Interpreting the prompt
 
@@ -96,7 +105,7 @@ The user describes a deck in plain language; you turn it into a structured
 2. **Infer the essentials, then fill gaps with defaults** (don't stall):
    - **Purpose & audience** → sets tone and which recipe to use.
    - **Length** → default ~8–12 slides for a review, ~6–8 for a proposal.
-   - **Look** → `theme` defaults to `corporate`, `classification` defaults to
+   - **Look** → `theme` defaults to `modern`, `classification` defaults to
      Private & Confidential, `accent` follows the chosen theme unless the user
      gives one.
 3. **Map content nouns → slide types** (see the cheat table below), choosing for
@@ -208,7 +217,7 @@ A background server started before an update is detected as outdated and
 restarted automatically by `--launch`, so you never see stale UI. Use
 `--restart` to force it.
 
-`--import-dir` recursively finds Deck Craft HTML under that folder (looks for the
+`--import-dir` recursively finds DeckCraft HTML under that folder (looks for the
 `#stage` + `.slide` markup), pairs each with a sibling `.md` when present, and
 indexes them locally. Re-running it refreshes metadata without double-counting
 builds. New builds continue to land wherever you write them — still fully local.
@@ -235,7 +244,7 @@ compound rows with `::` (e.g. `Title :: description`).
 ---
 title: Tech Workstream
 subtitle: Quarterly Review · Leadership
-theme: corporate
+theme: modern
 classification: Private & Confidential
 transition: fade
 ---
@@ -248,7 +257,7 @@ subtitle: Quarterly Review · Leadership
 **Front matter keys:** `title`, `subtitle`, `classification` (default
 `Private & Confidential`, shown small on the bottom-right of every slide; the
 footer's bottom-left carries the page number and year), `theme` (default
-`corporate`; see "Themes"), `accent` (hex, overrides the theme's accent),
+`modern`; see "Themes"), `accent` (hex, overrides the theme's accent),
 `font` (CSS font-family string, overrides the theme's font),
 `date`, `audience`, `transition` (`fade` (default) or `swipe`). Any slide may
 override `classification`. Any slide may also set `footnote:` to add a small

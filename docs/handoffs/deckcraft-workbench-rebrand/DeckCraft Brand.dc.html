@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800&family=Sora:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Instrument+Serif:ital@0;1&family=Spectral:ital,wght@0,300;0,400;0,600;1,400&family=Archivo:wght@400;500;600;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #E8E6E1; -webkit-font-smoothing: antialiased; }
+  a { color: #6E1A17; text-decoration: none; border-bottom: 1px solid currentColor; }
+  a:hover { color: #C4593B; }
+</style>
+</helmet>
+
+<section style="padding:64px 56px 40px; font-family:'Sora',sans-serif;">
+  <div style="display:flex; align-items:baseline; gap:20px; flex-wrap:wrap; margin-bottom:8px;">
+    <div style="font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:#5A554E; font-weight:600;">Turn 2 &middot; Workbench, two ways</div>
+    <div style="font-size:12px; color:#5A554E;">Both keep 1b's warm studio premise. <a href="#2a">2a</a> pushes the colour, <a href="#2b">2b</a> pushes the quiet.</div>
+  </div>
+  <h1 style="font-family:'Lora',serif; font-size:38px; line-height:1.1; margin:0 0 44px; font-weight:500; letter-spacing:-0.02em; color:#2B2724; max-width:820px;">Same bench, two temperaments.</h1>
+
+  <div style="display:flex; gap:40px; flex-wrap:wrap; align-items:flex-start;">
+
+    <div id="2a" style="width:880px; max-width:100%; background:#FAF3EA; border:1px solid #E6D8C7; border-radius:12px; padding:48px 44px 52px;">
+      <div style="display:flex; justify-content:space-between; align-items:baseline; padding-bottom:20px; margin-bottom:40px; border-bottom:1px solid #E6D8C7;">
+        <div style="display:flex; align-items:baseline; gap:16px;">
+          <span style="font-size:11px; font-weight:600; letter-spacing:0.12em; background:#B24A2A; color:#FFFFFF; padding:5px 10px; border-radius:6px;">2A</span>
+          <span style="font-family:'Lora',serif; font-size:23px; font-weight:600; color:#2F241C;">Kiln</span>
+        </div>
+        <span style="font-size:12px; color:#6E6459;">Workbench, turned up. Colour does the work.</span>
+      </div>
+
+      <div style="background:#B24A2A; border-radius:10px; padding:38px 36px; margin-bottom:16px;">
+        <div style="display:flex; gap:26px; align-items:center;">
+          <div style="width:84px; height:84px; background:#FAF3EA; border-radius:10px; display:grid; place-items:center; flex:none;">
+            <div style="display:flex; flex-direction:column; gap:5px;">
+              <div style="width:32px; height:8px; background:#B24A2A;"></div>
+              <div style="width:32px; height:8px; background:#B24A2A; opacity:0.66;"></div>
+              <div style="width:18px; height:8px; background:#B24A2A; opacity:0.38;"></div>
+            </div>
+          </div>
+          <div>
+            <div style="font-family:'Lora',serif; font-weight:600; font-size:50px; letter-spacing:-0.025em; color:#FFFFFF; line-height:1;">DeckCraft</div>
+            <div style="font-size:13px; letter-spacing:0.14em; text-transform:uppercase; color:#FFFFFF; margin-top:12px; font-weight:600;">Fired, not printed</div>
+          </div>
+        </div>
+      </div>
+      <div style="font-size:12px; color:#6E6459; margin-bottom:40px;">The lockup lives inside a terracotta field wherever there's room for it &mdash; that block is the brand's most recognisable asset. Reverse it to espresso on clay when terracotta would clash with a deck preview.</div>
+
+      <div style="font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#6E6459; font-weight:600; margin-bottom:14px;">Palette</div>
+      <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:8px; margin-bottom:10px;">
+        <div style="background:#2F241C; border-radius:8px; padding:20px 14px 16px; min-height:96px; display:flex; flex-direction:column; justify-content:flex-end;"><div style="color:#FAF3EA; font-size:12px; font-weight:500;">Espresso</div><div style="color:#FAF3EA; font-size:11px;">#2F241C</div></div>
+        <div style="background:#B24A2A; border-radius:8px; padding:20px 14px 16px; display:flex; flex-direction:column; justify-content:flex-end;"><div style="color:#FFFFFF; font-size:12px; font-weight:500;">Kiln</div><div style="color:#FFFFFF; font-size:11px;">#B24A2A</div></div>
+        <div style="background:#E2C3AE; border-radius:8px; padding:20px 14px 16px; display:flex; flex-direction:column; justify-content:flex-end;"><div style="color:#2F241C; font-size:12px; font-weight:500;">Clay</div><div style="color:#4A3A2E; font-size:11px;">#E2C3AE</div></div>
+        <div style="background:#FAF3EA; border:1px solid #E6D8C7; border-radius:8px; padding:20px 14px 16px; display:flex; flex-direction:column; justify-content:flex-end;"><div style="color:#2F241C; font-size:12px; font-weight:500;">Cream</div><div style="color:#5C5347; font-size:11px;">#FAF3EA</div></div>
+        <div style="background:#3E5B52; border-radius:8px; padding:20px 14px 16px; display:flex; flex-direction:column; justify-content:flex-end;"><div style="color:#FFFFFF; font-size:12px; font-weight:500;">Verdigris</div><div style="color:#FFFFFF; font-size:11px;">#3E5B52</div></div>
+      </div>
+      <div style="font-size:12px; color:#6E6459; margin-bottom:40px;">Kiln is allowed to flood whole panels, unlike 1b where terracotta only ever edged a button. Verdigris is the only cool note and appears at confirmation.</div>
+
+      <div style="font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#6E6459; font-weight:600; margin-bottom:18px;">Type &mdash; Lora with Sora</div>
+      <div style="display:flex; flex-direction:column; gap:20px; background:#FFFFFF; border:1px solid #EFE0CF; border-radius:10px; padding:28px 26px;">
+        <div style="display:flex; gap:24px; align-items:flex-start;">
+          <div style="width:150px; flex:none; font-size:11px; color:#6E6459; padding-top:8px;">Lora 600 &middot; 44/46 &middot; -2.5%</div>
+          <div style="font-family:'Lora',serif; font-weight:600; font-size:42px; letter-spacing:-0.025em; color:#2F241C; line-height:1.06;">Decks with a bit of heat in them</div>
+        </div>
+        <div style="height:1px; background:#F3E7D9;"></div>
+        <div style="display:flex; gap:24px; align-items:flex-start;">
+          <div style="width:150px; flex:none; font-size:11px; color:#6E6459; padding-top:5px;">Sora 600 &middot; 22 &middot; on Kiln</div>
+          <div style="background:#B24A2A; color:#FFFFFF; font-family:'Sora',sans-serif; font-weight:600; font-size:22px; padding:8px 14px; border-radius:6px;">Eight house styles</div>
+        </div>
+        <div style="height:1px; background:#F3E7D9;"></div>
+        <div style="display:flex; gap:24px; align-items:flex-start;">
+          <div style="width:150px; flex:none; font-size:11px; color:#6E6459; padding-top:3px;">Sora 400 &middot; 16/27</div>
+          <div style="font-size:16px; line-height:1.68; color:#4A3A2E; max-width:420px;">Headlines are Lora and nothing else. Everything functional stays Sora, including the highlight treatment above, which replaces underlines and rules throughout the product.</div>
+        </div>
+        <div style="height:1px; background:#F3E7D9;"></div>
+        <div style="display:flex; gap:24px; align-items:center;">
+          <div style="width:150px; flex:none; font-size:11px; color:#6E6459;">Sora 600 &middot; 11 &middot; +16%</div>
+          <div style="font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#96391D;">Labels, eyebrows, receipts</div>
+        </div>
+      </div>
+      <div style="font-size:12px; color:#6E6459; margin:12px 0 40px;">Highlight blocks carry 6px radii and 14px of horizontal padding &mdash; never applied to more than four words.</div>
+
+      <div style="font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#6E6459; font-weight:600; margin-bottom:18px;">Voice</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:16px;">
+        <div style="background:#2F241C; border-radius:10px; padding:22px 24px;">
+          <div style="font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:#E2C3AE; font-weight:600; margin-bottom:12px;">We write</div>
+          <div style="font-size:15px; line-height:1.65; color:#F1E4D7;">Direct and a bit confident. Short verbs, no hedging. The tool has opinions about slides and says so.</div>
+        </div>
+        <div style="background:#E2C3AE; border-radius:10px; padding:22px 24px;">
+          <div style="font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:#7A3A1E; font-weight:600; margin-bottom:12px;">We don't</div>
+          <div style="font-size:15px; line-height:1.65; color:#4A3A2E;">Apologise for the tip jar, pad with adjectives, or explain what a pitch deck is.</div>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:40px;">
+        <div style="display:flex; gap:14px; align-items:baseline;"><span style="font-size:11px; color:#6E6459; width:66px; flex:none;">hero</span><span style="font-size:16px; color:#2F241C;">Say what the deck is for. Pick a style. Done in a minute.</span></div>
+        <div style="display:flex; gap:14px; align-items:baseline;"><span style="font-size:11px; color:#6E6459; width:66px; flex:none;">tip ask</span><span style="font-size:16px; color:#2F241C;">Free, always. Tips keep the kiln on.</span></div>
+        <div style="display:flex; gap:14px; align-items:baseline;"><span style="font-size:11px; color:#6E6459; width:66px; flex:none;">receipt</span><span style="font-size:16px; color:#2F241C;">Noted and appreciated. Now go present it.</span></div>
+      </div>
+
+      <div style="font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#6E6459; font-weight:600; margin-bottom:18px;">Applied</div>
+      <div style="background:#2F241C; border-radius:10px; padding:36px 32px;">
+        <div style="font-family:'Lora',serif; font-weight:600; font-size:32px; letter-spacing:-0.02em; color:#FFFFFF; line-height:1.14; max-width:440px;">Say what the deck is for. <span style="background:#B24A2A; padding:2px 10px; border-radius:6px;">Pick a style.</span> Done in a minute.</div>
+        <div style="font-size:15px; line-height:1.6; color:#D8C7B6; margin:18px 0 26px; max-width:400px;">Free, always. Tips keep the kiln on.</div>
+        <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+          <div style="background:#B24A2A; color:#FFFFFF; font-size:14px; font-weight:600; padding:13px 24px; border-radius:8px;" style-hover="background:#963B1E;">Leave a tip</div>
+          <div style="border:1px solid #5A483C; color:#F1E4D7; font-size:14px; font-weight:500; padding:12px 20px; border-radius:8px;" style-hover="border-color:#E2C3AE;">$5</div>
+          <div style="border:1px solid #5A483C; color:#F1E4D7; font-size:14px; font-weight:500; padding:12px 20px; border-radius:8px;" style-hover="border-color:#E2C3AE;">$15</div>
+          <div style="border:1px solid #5A483C; color:#F1E4D7; font-size:14px; font-weight:500; padding:12px 20px; border-radius:8px;" style-hover="border-color:#E2C3AE;">Other</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="2b" style="width:880px; max-width:100%; background:#F7F4EE; border:1px solid #E2DCD0; border-radius:28px; padding:56px 52px 60px;">
+      <div style="display:flex; justify-content:space-between; align-items:baseline; padding-bottom:22px; margin-bottom:48px; border-bottom:1px solid #E2DCD0;">
+        <div style="display:flex; align-items:baseline; gap:16px;">
+          <span style="font-size:11px; font-weight:600; letter-spacing:0.12em; background:#40503C; color:#FFFFFF; padding:5px 12px; border-radius:999px;">2B</span>
+          <span style="font-family:'Instrument Serif',serif; font-size:26px; color:#232620;">Bench</span>
+        </div>
+        <span style="font-size:12px; color:#6E6459;">Workbench, turned down. Space does the work.</span>
+      </div>
+
+      <div style="display:flex; gap:30px; align-items:center; margin-bottom:18px;">
+        <div style="width:88px; height:88px; border:1.5px solid #40503C; border-radius:999px; display:grid; place-items:center; flex:none;">
+          <div style="font-family:'Instrument Serif',serif; font-size:34px; color:#40503C; line-height:1;">dc</div>
+        </div>
+        <div>
+          <div style="font-family:'Instrument Serif',serif; font-size:58px; letter-spacing:-0.01em; color:#232620; line-height:0.96;">DeckCraft</div>
+          <div style="font-size:14px; color:#5C5347; margin-top:12px;">Presentation work, quietly done</div>
+        </div>
+      </div>
+      <div style="font-size:12px; color:#6E6459; margin-bottom:48px;">A drawn monogram rather than a stack of slides &mdash; the mark reads as a maker's stamp. Hairline weight holds down to 40px; below that, wordmark only.</div>
+
+      <div style="font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#6E6459; font-weight:600; margin-bottom:16px;">Palette</div>
+      <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:12px; margin-bottom:12px;">
+        <div style="background:#232620; border-radius:18px; padding:22px 16px 18px; min-height:104px; display:flex; flex-direction:column; justify-content:flex-end;"><div style="color:#F7F4EE; font-size:12px; font-weight:500;">Slate</div><div style="color:#F7F4EE; font-size:11px;">#232620</div></div>
+        <div style="background:#40503C; border-radius:18px; padding:22px 16px 18px; display:flex; flex-direction:column; justify-content:flex-end;"><div style="color:#FFFFFF; font-size:12px; font-weight:500;">Bench green</div><div style="color:#FFFFFF; font-size:11px;">#40503C</div></div>
+        <div style="background:#F7F4EE; border:1px solid #E2DCD0; border-radius:18px; padding:22px 16px 18px; display:flex; flex-direction:column; justify-content:flex-end;"><div style="color:#232620; font-size:12px; font-weight:500;">Bone</div><div style="color:#5C5347; font-size:11px;">#F7F4EE</div></div>
+        <div style="background:#E7E1D4; border-radius:18px; padding:22px 16px 18px; display:flex; flex-direction:column; justify-content:flex-end;"><div style="color:#232620; font-size:12px; font-weight:500;">Linen</div><div style="color:#4F4941; font-size:11px;">#E7E1D4</div></div>
+        <div style="background:#A9472C; border-radius:18px; padding:22px 16px 18px; display:flex; flex-direction:column; justify-content:flex-end;"><div style="color:#FFFFFF; font-size:12px; font-weight:500;">Ember</div><div style="color:#FFFFFF; font-size:11px;">#A9472C</div></div>
+      </div>
+      <div style="font-size:12px; color:#6E6459; margin-bottom:48px;">Green becomes the brand colour and terracotta drops back to a single accent &mdash; the inverse of 1b. Ember marks one thing per screen and nothing else.</div>
+
+      <div style="font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#6E6459; font-weight:600; margin-bottom:20px;">Type &mdash; Instrument Serif with Sora</div>
+      <div style="display:flex; flex-direction:column; gap:26px; padding:4px 0 0;">
+        <div style="display:flex; gap:28px; align-items:flex-start;">
+          <div style="width:150px; flex:none; font-size:11px; color:#6E6459; padding-top:12px;">Instrument Serif &middot; 52/52</div>
+          <div style="font-family:'Instrument Serif',serif; font-size:50px; color:#232620; line-height:1.02; max-width:460px;">The deck is the argument, not the artwork</div>
+        </div>
+        <div style="height:1px; background:#E7E1D4;"></div>
+        <div style="display:flex; gap:28px; align-items:flex-start;">
+          <div style="width:150px; flex:none; font-size:11px; color:#6E6459; padding-top:4px;">Instrument Serif italic &middot; 24</div>
+          <div style="font-family:'Instrument Serif',serif; font-style:italic; font-size:24px; color:#4F4941;">Eight house styles, one skill</div>
+        </div>
+        <div style="height:1px; background:#E7E1D4;"></div>
+        <div style="display:flex; gap:28px; align-items:flex-start;">
+          <div style="width:150px; flex:none; font-size:11px; color:#6E6459; padding-top:3px;">Sora 300 &middot; 17/30</div>
+          <div style="font-weight:300; font-size:17px; line-height:1.76; color:#3D3A33; max-width:440px;">Body copy runs lighter and looser than 1b: Sora 300 at 17px, with 30px leading. The serif never appears below 22px, so the page has exactly two voices at any size.</div>
+        </div>
+        <div style="height:1px; background:#E7E1D4;"></div>
+        <div style="display:flex; gap:28px; align-items:center;">
+          <div style="width:150px; flex:none; font-size:11px; color:#6E6459;">Sora 500 &middot; 11 &middot; +16%</div>
+          <div style="font-size:11px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; color:#40503C;">Labels, eyebrows, receipts</div>
+        </div>
+      </div>
+      <div style="font-size:12px; color:#6E6459; margin:16px 0 48px;">Generous leading is the point. If a block feels tight, cut words before you cut space.</div>
+
+      <div style="font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#6E6459; font-weight:600; margin-bottom:20px;">Voice</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:18px;">
+        <div style="background:#FFFFFF; border:1px solid #E7E1D4; border-radius:20px; padding:26px 28px;">
+          <div style="font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:#40503C; font-weight:600; margin-bottom:14px;">We write</div>
+          <div style="font-weight:300; font-size:16px; line-height:1.7; color:#3D3A33;">Measured and unhurried. Full sentences, no exclamation. It sounds like a good editor, not a growth team.</div>
+        </div>
+        <div style="background:#E7E1D4; border-radius:20px; padding:26px 28px;">
+          <div style="font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:#5C5347; font-weight:600; margin-bottom:14px;">We don't</div>
+          <div style="font-weight:300; font-size:16px; line-height:1.7; color:#4F4941;">Use the word craft as a verb, chase warmth with emoji, or crowd the page to look generous.</div>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:12px; margin-bottom:48px;">
+        <div style="display:flex; gap:16px; align-items:baseline;"><span style="font-size:11px; color:#6E6459; width:66px; flex:none;">hero</span><span style="font-size:16px; font-weight:300; color:#232620;">Describe what you need to present. The rest is handled.</span></div>
+        <div style="display:flex; gap:16px; align-items:baseline;"><span style="font-size:11px; color:#6E6459; width:66px; flex:none;">tip ask</span><span style="font-size:16px; font-weight:300; color:#232620;">There's no paywall. If it earned one, leave a tip.</span></div>
+        <div style="display:flex; gap:16px; align-items:baseline;"><span style="font-size:11px; color:#6E6459; width:66px; flex:none;">receipt</span><span style="font-size:16px; font-weight:300; color:#232620;">Thank you &mdash; genuinely helpful. Good luck with the room.</span></div>
+      </div>
+
+      <div style="font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#6E6459; font-weight:600; margin-bottom:20px;">Applied</div>
+      <div style="background:#FFFFFF; border:1px solid #E7E1D4; border-radius:24px; padding:52px 44px;">
+        <div style="font-family:'Instrument Serif',serif; font-size:40px; color:#232620; line-height:1.06; max-width:460px;">Describe what you need to present. The rest is handled.</div>
+        <div style="font-size:16px; font-weight:300; line-height:1.7; color:#4F4941; margin:20px 0 34px; max-width:400px;">There's no paywall. If it earned one, leave a tip.</div>
+        <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
+          <div style="background:#40503C; color:#FFFFFF; font-size:14px; font-weight:500; padding:14px 26px; border-radius:999px;" style-hover="background:#2E3B2B;">Leave a tip</div>
+          <div style="border:1px solid #DDD6C8; color:#3D3A33; font-size:14px; font-weight:400; padding:13px 22px; border-radius:999px;" style-hover="border-color:#40503C;">$5</div>
+          <div style="border:1px solid #DDD6C8; color:#3D3A33; font-size:14px; font-weight:400; padding:13px 22px; border-radius:999px;" style-hover="border-color:#40503C;">$15</div>
+          <div style="border:1px solid #DDD6C8; color:#3D3A33; font-size:14px; font-weight:400; padding:13px 22px; border-radius:999px;" style-hover="border-color:#40503C;">Other</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:24px 56px 96px; font-family:'Libre Franklin',sans-serif;">
+  <div style="display:flex; align-items:baseline; gap:20px; flex-wrap:wrap; margin-bottom:8px;">
+    <div style="font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:#5A554E; font-weight:600;">Turn 1 &middot; Brand identity</div>
+    <div style="font-size:12px; color:#5A554E;">Two directions for DeckCraft. Reference them as <a href="#1a">1a</a> or <a href="#1b">1b</a>.</div>
+  </div>
+  <h1 style="font-size:40px; line-height:1.05; margin:0 0 44px; font-weight:300; letter-spacing:-0.02em; color:#1B1A17; max-width:820px;">DeckCraft &mdash; a tip-funded skill that builds presentations.</h1>
+
+  <div style="display:flex; gap:40px; flex-wrap:wrap; align-items:flex-start;">
+
+    <div id="1a" style="width:880px; max-width:100%; background:#F4F1EA; border:1px solid #D8D2C4; padding:48px 44px 52px;">
+      <div style="display:flex; justify-content:space-between; align-items:baseline; border-bottom:1px solid #14110F; padding-bottom:14px; margin-bottom:40px;">
+        <div style="display:flex; align-items:baseline; gap:16px;">
+          <span style="font-family:'Libre Franklin',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.14em; background:#6E1A17; color:#F4F1EA; padding:5px 9px;">1A</span>
+          <span style="font-size:22px; font-weight:600; letter-spacing:-0.01em; color:#14110F;">Imprint</span>
+        </div>
+        <span style="font-size:12px; color:#5F584F; letter-spacing:0.02em;">Print shop. Ink, rules, restraint.</span>
+      </div>
+
+      <div style="display:flex; gap:28px; align-items:center; margin-bottom:16px;">
+        <div style="width:92px; height:92px; background:#14110F; display:grid; place-items:center; flex:none;">
+          <div style="font-family:'Libre Franklin',sans-serif; font-weight:800; font-size:34px; letter-spacing:-0.04em; color:#F4F1EA; line-height:1;">D<span style="color:#C0564F;">C</span></div>
+        </div>
+        <div>
+          <div style="font-family:'Libre Franklin',sans-serif; font-weight:800; font-size:52px; letter-spacing:-0.045em; color:#14110F; line-height:0.95;">DeckCraft</div>
+          <div style="font-size:12px; letter-spacing:0.3em; text-transform:uppercase; color:#6E1A17; margin-top:10px; font-weight:600;">Decks, pressed to order</div>
+        </div>
+      </div>
+      <div style="font-size:12px; color:#5F584F; margin-bottom:40px;">Mark is the wordmark's first two letters set in the same weight &mdash; never redrawn. Minimum lockup width 120px; clear space equals the cap height.</div>
+
+      <div style="font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:#5F584F; font-weight:700; margin-bottom:14px;">Palette</div>
+      <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:1px; background:#D8D2C4; margin-bottom:10px;">
+        <div style="background:#14110F; padding:20px 14px 16px; min-height:96px; display:flex; flex-direction:column; justify-content:flex-end;"><div style="color:#F4F1EA; font-size:12px; font-weight:600;">Ink</div><div style="color:#9C958C; font-size:11px; font-family:'IBM Plex Mono',monospace;">#14110F</div></div>
+        <div style="background:#6E1A17; padding:20px 14px 16px; display:flex; flex-direction:column; justify-content:flex-end;"><div style="color:#F4F1EA; font-size:12px; font-weight:600;">Oxblood</div><div style="color:#DCBBB6; font-size:11px; font-family:'IBM Plex Mono',monospace;">#6E1A17</div></div>
+        <div style="background:#F4F1EA; padding:20px 14px 16px; display:flex; flex-direction:column; justify-content:flex-end;"><div style="color:#14110F; font-size:12px; font-weight:600;">Paper</div><div style="color:#5F584F; font-size:11px; font-family:'IBM Plex Mono',monospace;">#F4F1EA</div></div>
+        <div style="background:#E3DCCD; padding:20px 14px 16px; display:flex; flex-direction:column; justify-content:flex-end;"><div style="color:#14110F; font-size:12px; font-weight:600;">Bone</div><div style="color:#4A443C; font-size:11px; font-family:'IBM Plex Mono',monospace;">#E3DCCD</div></div>
+        <div style="background:#7A736A; padding:20px 14px 16px; display:flex; flex-direction:column; justify-content:flex-end;"><div style="color:#14110F; font-size:12px; font-weight:600;">Graphite</div><div style="color:#14110F; font-size:11px; font-family:'IBM Plex Mono',monospace;">#7A736A</div></div>
+      </div>
+      <div style="font-size:12px; color:#5F584F; margin-bottom:40px;">Ink carries all body copy. Oxblood is reserved: one use per screen, always the thing you want clicked.</div>
+
+      <div style="font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:#5F584F; font-weight:700; margin-bottom:18px;">Type &mdash; Libre Franklin, one family</div>
+      <div style="border-top:1px solid #D8D2C4;">
+        <div style="display:flex; gap:24px; padding:18px 0; border-bottom:1px solid #D8D2C4;">
+          <div style="width:150px; flex:none; font-size:11px; color:#5F584F; font-family:'IBM Plex Mono',monospace; padding-top:8px;">800 &middot; 52/50 &middot; -4.5%</div>
+          <div style="font-weight:800; font-size:44px; letter-spacing:-0.04em; color:#14110F; line-height:1;">Pitch decks, pressed</div>
+        </div>
+        <div style="display:flex; gap:24px; padding:18px 0; border-bottom:1px solid #D8D2C4;">
+          <div style="width:150px; flex:none; font-size:11px; color:#5F584F; font-family:'IBM Plex Mono',monospace; padding-top:6px;">600 &middot; 24/30 &middot; -1%</div>
+          <div style="font-weight:600; font-size:24px; letter-spacing:-0.01em; color:#14110F;">Eight house styles, one skill</div>
+        </div>
+        <div style="display:flex; gap:24px; padding:18px 0; border-bottom:1px solid #D8D2C4;">
+          <div style="width:150px; flex:none; font-size:11px; color:#5F584F; font-family:'IBM Plex Mono',monospace; padding-top:4px;">400 &middot; 16/26</div>
+          <div style="font-weight:400; font-size:16px; line-height:1.6; color:#3B3630; max-width:420px;">Body copy sits at 16px with generous leading. Lines stay under 70 characters so a founder reading on a phone between meetings never loses their place.</div>
+        </div>
+        <div style="display:flex; gap:24px; padding:18px 0; border-bottom:1px solid #D8D2C4;">
+          <div style="width:150px; flex:none; font-size:11px; color:#5F584F; font-family:'IBM Plex Mono',monospace;">700 &middot; 11 &middot; +18%</div>
+          <div style="font-size:11px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:#6E1A17;">Labels, eyebrows, receipts</div>
+        </div>
+      </div>
+      <div style="font-size:12px; color:#5F584F; margin:12px 0 40px;">Numerals and hex values use IBM Plex Mono. No other typefaces.</div>
+
+      <div style="font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:#5F584F; font-weight:700; margin-bottom:18px;">Voice</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1px; background:#D8D2C4; margin-bottom:14px;">
+        <div style="background:#F4F1EA; padding:20px 22px;">
+          <div style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#6E1A17; font-weight:700; margin-bottom:12px;">We write</div>
+          <div style="font-size:15px; line-height:1.65; color:#3B3630;">Plain, specific, a little dry. State what the skill does and what it costs. Credit the reader with judgement.</div>
+        </div>
+        <div style="background:#F4F1EA; padding:20px 22px;">
+          <div style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#5F584F; font-weight:700; margin-bottom:12px;">We don't</div>
+          <div style="font-size:15px; line-height:1.65; color:#5F584F;">Hype, urgency, exclamation marks, or the word &ldquo;effortless&rdquo;. No begging for the tip.</div>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:40px;">
+        <div style="display:flex; gap:14px; align-items:baseline;"><span style="font-size:11px; font-family:'IBM Plex Mono',monospace; color:#5F584F; width:66px; flex:none;">hero</span><span style="font-size:16px; color:#14110F;">Describe the deck. Pick a style. Get the file.</span></div>
+        <div style="display:flex; gap:14px; align-items:baseline;"><span style="font-size:11px; font-family:'IBM Plex Mono',monospace; color:#5F584F; width:66px; flex:none;">tip ask</span><span style="font-size:16px; color:#14110F;">It's free to use. If it saved you an evening, leave what that's worth.</span></div>
+        <div style="display:flex; gap:14px; align-items:baseline;"><span style="font-size:11px; font-family:'IBM Plex Mono',monospace; color:#5F584F; width:66px; flex:none;">receipt</span><span style="font-size:16px; color:#14110F;">Thanks. That's a coffee and a half in Melbourne.</span></div>
+      </div>
+
+      <div style="font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:#5F584F; font-weight:700; margin-bottom:18px;">Applied</div>
+      <div style="background:#14110F; padding:34px 32px;">
+        <div style="font-weight:800; font-size:30px; letter-spacing:-0.035em; color:#F4F1EA; line-height:1.1; max-width:400px;">Describe the deck. Pick a style. Get the file.</div>
+        <div style="font-size:15px; line-height:1.6; color:#A8A19A; margin:14px 0 26px; max-width:400px;">Free to use. Tip what it was worth.</div>
+        <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+          <div style="background:#6E1A17; color:#F4F1EA; font-size:14px; font-weight:600; letter-spacing:0.02em; padding:13px 22px;" style-hover="background:#8C2622;">Leave a tip</div>
+          <div style="border:1px solid #4A453F; color:#E3DCCD; font-size:14px; font-weight:500; padding:12px 20px;" style-hover="border-color:#E3DCCD;">$5</div>
+          <div style="border:1px solid #4A453F; color:#E3DCCD; font-size:14px; font-weight:500; padding:12px 20px;" style-hover="border-color:#E3DCCD;">$15</div>
+          <div style="border:1px solid #4A453F; color:#E3DCCD; font-size:14px; font-weight:500; padding:12px 20px;" style-hover="border-color:#E3DCCD;">Other</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="1b" style="width:880px; max-width:100%; background:#FBF7F1; border:1px solid #E4DACE; border-radius:20px; padding:48px 44px 52px;">
+      <div style="display:flex; justify-content:space-between; align-items:baseline; padding-bottom:20px; margin-bottom:40px; border-bottom:1px solid #E4DACE;">
+        <div style="display:flex; align-items:baseline; gap:16px;">
+          <span style="font-family:'Sora',sans-serif; font-size:11px; font-weight:600; letter-spacing:0.12em; background:#A9472C; color:#FFF6F0; padding:5px 10px; border-radius:999px;">1B</span>
+          <span style="font-family:'Lora',serif; font-size:23px; font-weight:600; color:#2B2724;">Workbench</span>
+        </div>
+        <span style="font-family:'Sora',sans-serif; font-size:12px; color:#6E6459;">Warm studio. Soft edges, made by hand.</span>
+      </div>
+
+      <div style="display:flex; gap:28px; align-items:center; margin-bottom:16px;">
+        <div style="width:92px; height:92px; background:#C4593B; border-radius:24px; display:grid; place-items:center; flex:none;">
+          <div style="display:flex; flex-direction:column; gap:5px;">
+            <div style="width:34px; height:7px; border-radius:4px; background:#FBF7F1;"></div>
+            <div style="width:34px; height:7px; border-radius:4px; background:#FBF7F1; opacity:0.72;"></div>
+            <div style="width:20px; height:7px; border-radius:4px; background:#FBF7F1; opacity:0.45;"></div>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'Lora',serif; font-weight:600; font-size:50px; letter-spacing:-0.02em; color:#2B2724; line-height:1;">DeckCraft</div>
+          <div style="font-family:'Sora',sans-serif; font-size:14px; color:#6E6459; margin-top:10px;">A small tool for people who pitch a lot</div>
+        </div>
+      </div>
+      <div style="font-family:'Sora',sans-serif; font-size:12px; color:#6B5F55; margin-bottom:40px;">Three stacked bars read as slides in a stack. The mark works alone at 32px and up; the lockup keeps one mark-width of clear space.</div>
+
+      <div style="font-family:'Sora',sans-serif; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#6E6459; font-weight:600; margin-bottom:14px;">Palette</div>
+      <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin-bottom:10px;">
+        <div style="background:#2B2724; border-radius:14px; padding:20px 14px 16px; min-height:96px; display:flex; flex-direction:column; justify-content:flex-end; font-family:'Sora',sans-serif;"><div style="color:#FBF7F1; font-size:12px; font-weight:500;">Charcoal</div><div style="color:#A39A91; font-size:11px;">#2B2724</div></div>
+        <div style="background:#C4593B; border-radius:14px; padding:20px 14px 16px; display:flex; flex-direction:column; justify-content:flex-end; font-family:'Sora',sans-serif;"><div style="color:#FFF6F0; font-size:12px; font-weight:500;">Terracotta</div><div style="color:#FFFFFF; font-size:11px;">#C4593B</div></div>
+        <div style="background:#FBF7F1; border:1px solid #E4DACE; border-radius:14px; padding:20px 14px 16px; display:flex; flex-direction:column; justify-content:flex-end; font-family:'Sora',sans-serif;"><div style="color:#2B2724; font-size:12px; font-weight:500;">Cream</div><div style="color:#6E6459; font-size:11px;">#FBF7F1</div></div>
+        <div style="background:#EFE4D6; border-radius:14px; padding:20px 14px 16px; display:flex; flex-direction:column; justify-content:flex-end; font-family:'Sora',sans-serif;"><div style="color:#2B2724; font-size:12px; font-weight:500;">Oat</div><div style="color:#5C5347; font-size:11px;">#EFE4D6</div></div>
+        <div style="background:#5C6B52; border-radius:14px; padding:20px 14px 16px; display:flex; flex-direction:column; justify-content:flex-end; font-family:'Sora',sans-serif;"><div style="color:#FBF7F1; font-size:12px; font-weight:500;">Sage</div><div style="color:#FFFFFF; font-size:11px;">#5C6B52</div></div>
+      </div>
+      <div style="font-family:'Sora',sans-serif; font-size:12px; color:#6B5F55; margin-bottom:40px;">Terracotta for actions, sage only for success and confirmation states. Oat fills cards so cream stays the page.</div>
+
+      <div style="font-family:'Sora',sans-serif; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#6E6459; font-weight:600; margin-bottom:18px;">Type &mdash; Lora with Sora</div>
+      <div style="display:flex; flex-direction:column; gap:20px; background:#FFFFFF; border:1px solid #EFE4D6; border-radius:16px; padding:28px 26px;">
+        <div style="display:flex; gap:24px; align-items:flex-start;">
+          <div style="width:150px; flex:none; font-family:'Sora',sans-serif; font-size:11px; color:#6E6459; padding-top:8px;">Lora 600 &middot; 44/46</div>
+          <div style="font-family:'Lora',serif; font-weight:600; font-size:42px; letter-spacing:-0.02em; color:#2B2724; line-height:1.08;">Decks that sound like you</div>
+        </div>
+        <div style="height:1px; background:#F0E8DE;"></div>
+        <div style="display:flex; gap:24px; align-items:flex-start;">
+          <div style="width:150px; flex:none; font-family:'Sora',sans-serif; font-size:11px; color:#6E6459; padding-top:4px;">Lora italic 400 &middot; 22</div>
+          <div style="font-family:'Lora',serif; font-style:italic; font-size:22px; color:#6B5F55;">Eight house styles, one skill</div>
+        </div>
+        <div style="height:1px; background:#F0E8DE;"></div>
+        <div style="display:flex; gap:24px; align-items:flex-start;">
+          <div style="width:150px; flex:none; font-family:'Sora',sans-serif; font-size:11px; color:#6E6459; padding-top:3px;">Sora 400 &middot; 16/27</div>
+          <div style="font-family:'Sora',sans-serif; font-size:16px; line-height:1.68; color:#4A423B; max-width:420px;">Sora handles everything functional: body copy, buttons, form labels, amounts. Lora appears only at headline sizes, where its warmth reads as craft rather than decoration.</div>
+        </div>
+        <div style="height:1px; background:#F0E8DE;"></div>
+        <div style="display:flex; gap:24px; align-items:center;">
+          <div style="width:150px; flex:none; font-family:'Sora',sans-serif; font-size:11px; color:#6E6459;">Sora 600 &middot; 11 &middot; +16%</div>
+          <div style="font-family:'Sora',sans-serif; font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#A9472C;">Labels, eyebrows, receipts</div>
+        </div>
+      </div>
+      <div style="font-family:'Sora',sans-serif; font-size:12px; color:#6B5F55; margin:12px 0 40px;">Never set Lora below 20px and never in all caps.</div>
+
+      <div style="font-family:'Sora',sans-serif; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#6E6459; font-weight:600; margin-bottom:18px;">Voice</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:16px;">
+        <div style="background:#EFE4D6; border-radius:16px; padding:22px 24px;">
+          <div style="font-family:'Sora',sans-serif; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:#A9472C; font-weight:600; margin-bottom:12px;">We write</div>
+          <div style="font-family:'Sora',sans-serif; font-size:15px; line-height:1.65; color:#4A423B;">Like a maker showing you their bench. Warm, first-person, happy to explain the craft behind a slide.</div>
+        </div>
+        <div style="background:#FFFFFF; border:1px solid #EFE4D6; border-radius:16px; padding:22px 24px;">
+          <div style="font-family:'Sora',sans-serif; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:#6E6459; font-weight:600; margin-bottom:12px;">We don't</div>
+          <div style="font-family:'Sora',sans-serif; font-size:15px; line-height:1.65; color:#6E6459;">Corporate we, growth-speak, or cutesy coffee puns past the one in the tip jar.</div>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:40px; font-family:'Sora',sans-serif;">
+        <div style="display:flex; gap:14px; align-items:baseline;"><span style="font-size:11px; color:#6E6459; width:66px; flex:none;">hero</span><span style="font-size:16px; color:#2B2724;">Tell me about the deck. I'll build it in your style.</span></div>
+        <div style="display:flex; gap:14px; align-items:baseline;"><span style="font-size:11px; color:#6E6459; width:66px; flex:none;">tip ask</span><span style="font-size:16px; color:#2B2724;">Use it as much as you like. Tips keep the bench lit.</span></div>
+        <div style="display:flex; gap:14px; align-items:baseline;"><span style="font-size:11px; color:#6E6459; width:66px; flex:none;">receipt</span><span style="font-size:16px; color:#2B2724;">Got it, thank you. Go win the room.</span></div>
+      </div>
+
+      <div style="font-family:'Sora',sans-serif; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#6E6459; font-weight:600; margin-bottom:18px;">Applied</div>
+      <div style="background:#EFE4D6; border-radius:20px; padding:36px 32px;">
+        <div style="font-family:'Lora',serif; font-weight:600; font-size:30px; letter-spacing:-0.015em; color:#2B2724; line-height:1.15; max-width:420px;">Tell me about the deck. I'll build it in your style.</div>
+        <div style="font-family:'Sora',sans-serif; font-size:15px; line-height:1.6; color:#6B5F55; margin:14px 0 26px; max-width:400px;">Free to use. Tips keep the bench lit.</div>
+        <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap; font-family:'Sora',sans-serif;">
+          <div style="background:#A9472C; color:#FFF6F0; font-size:14px; font-weight:600; padding:13px 24px; border-radius:999px;" style-hover="background:#8E3A22;">Leave a tip</div>
+          <div style="background:#FBF7F1; border:1px solid #E0D2C2; color:#4A423B; font-size:14px; font-weight:500; padding:12px 20px; border-radius:999px;" style-hover="border-color:#C4593B;">$5</div>
+          <div style="background:#FBF7F1; border:1px solid #E0D2C2; color:#4A423B; font-size:14px; font-weight:500; padding:12px 20px; border-radius:999px;" style-hover="border-color:#C4593B;">$15</div>
+          <div style="background:#FBF7F1; border:1px solid #E0D2C2; color:#4A423B; font-size:14px; font-weight:500; padding:12px 20px; border-radius:999px;" style-hover="border-color:#C4593B;">Other</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="1c" style="margin-top:64px; background:#FFFFFF; border:1px solid #D8D2C4; padding:48px 44px 52px;">
+    <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:16px; border-bottom:1px solid #E0DBD1; padding-bottom:18px; margin-bottom:36px;">
+      <div style="display:flex; align-items:baseline; gap:16px;">
+        <span style="font-size:11px; font-weight:700; letter-spacing:0.14em; background:#14110F; color:#F4F1EA; padding:5px 9px;">1C</span>
+        <span style="font-size:22px; font-weight:600; letter-spacing:-0.01em; color:#14110F;">Deck styles</span>
+      </div>
+      <span style="font-size:12px; color:#5F584F; max-width:520px;">Eight house styles the skill can output, independent of whichever brand direction wins. Each card is the spec: palette, type pairing, and the one rule that makes it recognisable.</span>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(380px,1fr)); gap:24px;">
+
+      <div style="border:1px solid #E0DBD1;">
+        <div style="background:#101114; padding:26px 24px 24px;">
+          <div style="font-family:'Archivo',sans-serif; font-weight:600; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:#7B90FF; margin-bottom:14px;">01 / Modern</div>
+          <div style="font-family:'Archivo',sans-serif; font-weight:600; font-size:30px; letter-spacing:-0.03em; color:#F2F3F5; line-height:1.1;">Series A, one slide at a time</div>
+          <div style="font-family:'Archivo',sans-serif; font-size:14px; color:#8A8F99; margin-top:10px;">Archivo 600 / Archivo 400 &middot; 8px grid</div>
+        </div>
+        <div style="display:flex; height:34px;"><div style="flex:1; background:#101114;"></div><div style="flex:1; background:#2C4BFF;"></div><div style="flex:1; background:#8A8F99;"></div><div style="flex:1; background:#F2F3F5;"></div></div>
+        <div style="padding:18px 24px 22px; font-size:13px; line-height:1.6; color:#4A443C;">One accent blue, everything else greyscale. Left-aligned titles, no rules, no shadows.</div>
+      </div>
+
+      <div style="border:1px solid #E0DBD1;">
+        <div style="background:#EDF1F6; padding:26px 24px 24px;">
+          <div style="font-family:'Libre Franklin',sans-serif; font-weight:700; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:#7E6122; margin-bottom:14px;">02 / Professional</div>
+          <div style="font-family:'Spectral',serif; font-weight:600; font-size:30px; letter-spacing:-0.01em; color:#14284B; line-height:1.15;">FY27 operating review</div>
+          <div style="font-family:'Libre Franklin',sans-serif; font-size:14px; color:#4A5D78; margin-top:10px;">Spectral 600 / Libre Franklin 400 &middot; footer rule</div>
+        </div>
+        <div style="display:flex; height:34px;"><div style="flex:1; background:#14284B;"></div><div style="flex:1; background:#4A5D78;"></div><div style="flex:1; background:#A8843F;"></div><div style="flex:1; background:#EDF1F6; box-shadow:inset 0 0 0 1px #E0DBD1;"></div></div>
+        <div style="padding:18px 24px 22px; font-size:13px; line-height:1.6; color:#4A443C;">Serif headings, navy authority, thin gold rule under every title. Page numbers always on.</div>
+      </div>
+
+      <div style="border:1px solid #E0DBD1;">
+        <div style="background:#0C0D10; padding:26px 24px 24px;">
+          <div style="font-family:'Sora',sans-serif; font-weight:600; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:#38E1C0; margin-bottom:14px;">03 / Dark</div>
+          <div style="font-family:'Sora',sans-serif; font-weight:600; font-size:30px; letter-spacing:-0.02em; color:#E8E9EC; line-height:1.12;">Built for a dim room</div>
+          <div style="font-family:'Sora',sans-serif; font-size:14px; color:#7A8089; margin-top:10px;">Sora 600 / Sora 300 &middot; #16181D cards</div>
+        </div>
+        <div style="display:flex; height:34px;"><div style="flex:1; background:#0C0D10;"></div><div style="flex:1; background:#16181D;"></div><div style="flex:1; background:#38E1C0;"></div><div style="flex:1; background:#E8E9EC;"></div></div>
+        <div style="padding:18px 24px 22px; font-size:13px; line-height:1.6; color:#4A443C;">Never pure black on pure white type. Cards lift with a lighter fill, not a shadow.</div>
+      </div>
+
+      <div style="border:1px solid #E0DBD1;">
+        <div style="background:#FFFFFF; border-bottom:1px solid #E6E6E6; padding:26px 24px 24px;">
+          <div style="font-family:'Libre Franklin',sans-serif; font-weight:700; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:#767676; margin-bottom:14px;">04 / Light</div>
+          <div style="font-family:'Libre Franklin',sans-serif; font-weight:300; font-size:30px; letter-spacing:-0.03em; color:#111111; line-height:1.12;">Say less, in more space</div>
+          <div style="font-family:'Libre Franklin',sans-serif; font-size:14px; color:#767676; margin-top:10px;">Libre Franklin 300 / 400 &middot; 96px margins</div>
+        </div>
+        <div style="display:flex; height:34px;"><div style="flex:1; background:#111111;"></div><div style="flex:1; background:#9A9A9A;"></div><div style="flex:1; background:#E6E6E6;"></div><div style="flex:1; background:#FFFFFF; box-shadow:inset 0 0 0 1px #E6E6E6;"></div></div>
+        <div style="padding:18px 24px 22px; font-size:13px; line-height:1.6; color:#4A443C;">No colour at all. One idea per slide, huge margins, light weights only.</div>
+      </div>
+
+      <div style="border:1px solid #E0DBD1;">
+        <div style="background:#FAF6EE; padding:26px 24px 24px;">
+          <div style="font-family:'Spectral',serif; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:#B3261E; margin-bottom:14px;">05 / Editorial</div>
+          <div style="font-family:'Instrument Serif',serif; font-size:36px; color:#1B1A17; line-height:1.05;">The case for buying less software</div>
+          <div style="font-family:'Spectral',serif; font-size:14px; color:#6B655A; margin-top:10px;">Instrument Serif / Spectral 400 &middot; drop caps</div>
+        </div>
+        <div style="display:flex; height:34px;"><div style="flex:1; background:#1B1A17;"></div><div style="flex:1; background:#B3261E;"></div><div style="flex:1; background:#D9CFBD;"></div><div style="flex:1; background:#FAF6EE;"></div></div>
+        <div style="padding:18px 24px 22px; font-size:13px; line-height:1.6; color:#4A443C;">Magazine logic: two-column body, pull quotes, italic captions. Titles can run three lines.</div>
+      </div>
+
+      <div style="border:1px solid #E0DBD1;">
+        <div style="background:#F7F8F8; padding:26px 24px 24px;">
+          <div style="font-family:'IBM Plex Mono',monospace; font-weight:500; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#0E6E6E; margin-bottom:14px;">06 / Technical</div>
+          <div style="font-family:'IBM Plex Mono',monospace; font-weight:500; font-size:26px; color:#0F1B1F; line-height:1.2;">p95 latency, by region</div>
+          <div style="font-family:'Libre Franklin',sans-serif; font-size:14px; color:#5E6B6E; margin-top:10px;">IBM Plex Mono 500 / Libre Franklin 400</div>
+        </div>
+        <div style="display:flex; height:34px;"><div style="flex:1; background:#0F1B1F;"></div><div style="flex:1; background:#0E6E6E;"></div><div style="flex:1; background:#D98A0B;"></div><div style="flex:1; background:#F7F8F8; box-shadow:inset 0 0 0 1px #E0DBD1;"></div></div>
+        <div style="padding:18px 24px 22px; font-size:13px; line-height:1.6; color:#4A443C;">Charts are the slide. Mono labels, axis rules at 20% ink, amber reserved for the outlier.</div>
+      </div>
+
+      <div style="border:1px solid #E0DBD1;">
+        <div style="background:#000000; padding:26px 24px 24px;">
+          <div style="font-family:'Archivo',sans-serif; font-weight:900; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:#F2FF49; margin-bottom:14px;">07 / Bold</div>
+          <div style="font-family:'Archivo',sans-serif; font-weight:900; font-size:34px; letter-spacing:-0.04em; color:#FFFFFF; line-height:0.98; text-transform:uppercase;">We grew 4&times; without a sales team</div>
+          <div style="font-family:'Archivo',sans-serif; font-size:14px; color:#8C8C8C; margin-top:12px;">Archivo 900 / Archivo 500 &middot; full-bleed</div>
+        </div>
+        <div style="display:flex; height:34px;"><div style="flex:1; background:#000000;"></div><div style="flex:1; background:#F2FF49;"></div><div style="flex:1; background:#FF3D2E;"></div><div style="flex:1; background:#FFFFFF; box-shadow:inset 0 0 0 1px #E0DBD1;"></div></div>
+        <div style="padding:18px 24px 22px; font-size:13px; line-height:1.6; color:#4A443C;">Type fills the frame edge to edge. Six words maximum. One slide, one colour flip.</div>
+      </div>
+
+      <div style="border:1px solid #E0DBD1;">
+        <div style="background:#F3E9DC; padding:26px 24px 24px;">
+          <div style="font-family:'Sora',sans-serif; font-weight:600; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:#9B3F23; margin-bottom:14px;">08 / Warm</div>
+          <div style="font-family:'Lora',serif; font-weight:600; font-size:30px; letter-spacing:-0.015em; color:#4A3728; line-height:1.14;">A bakery, three years in</div>
+          <div style="font-family:'Sora',sans-serif; font-size:14px; color:#6A5A48; margin-top:10px;">Lora 600 / Sora 400 &middot; 16px radii</div>
+        </div>
+        <div style="display:flex; height:34px;"><div style="flex:1; background:#4A3728;"></div><div style="flex:1; background:#C4593B;"></div><div style="flex:1; background:#7D8A5C;"></div><div style="flex:1; background:#F3E9DC;"></div></div>
+        <div style="padding:18px 24px 22px; font-size:13px; line-height:1.6; color:#4A443C;">Rounded corners, photography over flat colour, hand-set captions. Good for founder stories.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</x-dc>
+</body>
+</html>

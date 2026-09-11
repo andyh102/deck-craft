@@ -1,7 +1,7 @@
 ---
 title: Tech Workstream
 subtitle: Quarterly Review · Leadership
-theme: corporate
+theme: modern
 classification: Private & Confidential
 date: Q3 2026
 audience: Leadership

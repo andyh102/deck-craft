@@ -1,7 +1,7 @@
 ---
 title: PRESENTATION TITLE HERE
 subtitle: Subtitle · Audience or Date
-theme: corporate
+theme: modern
 classification: Private & Confidential
 date: Q3 2026
 audience: Leadership
