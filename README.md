@@ -111,7 +111,6 @@ commercially or otherwise. Bundled third-party JS libraries keep their own
 
 ## Support
 
-DeckCraft is free. If it's useful to you, you're welcome to buy me a coffee
-— entirely optional, no features are gated behind it.
-<!-- TODO: add your Buy Me a Coffee link once the account exists, e.g.
-     [buy me a coffee](https://buymeacoffee.com/<your-handle>) -->
+DeckCraft is free. If it's useful to you, you're welcome to
+[buy me a coffee](https://buymeacoffee.com/deckcraft) — a one-off tip, any
+amount, entirely optional. No features are gated behind it.
