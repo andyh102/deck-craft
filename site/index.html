@@ -1,0 +1,397 @@
+<title>Deck Craft</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f4f5f7; --ink:#14161c; --ink-soft:#43485a; --muted:#868c9c; --line:#dcdfe6;
+    --amber:#c8791e; --amber-ink:#14161c;
+    --card:#ffffff; --card-line:#e3e5ea;
+    --shadow:0 24px 60px rgba(20,22,28,.10);
+    --disp:"Instrument Serif", Georgia, serif;
+    --body:"Archivo", -apple-system, "Segoe UI", sans-serif;
+    --mono:"JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#14161c; --ink:#eceef2; --ink-soft:#b6bacc; --muted:#757c90; --line:#2a2e3a;
+      --amber:#f2a93c; --amber-ink:#14161c;
+      --card:#1b1e27; --card-line:#2c303c;
+      --shadow:0 24px 60px rgba(0,0,0,.45);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#14161c; --ink:#eceef2; --ink-soft:#b6bacc; --muted:#757c90; --line:#2a2e3a;
+    --amber:#f2a93c; --amber-ink:#14161c;
+    --card:#1b1e27; --card-line:#2c303c;
+    --shadow:0 24px 60px rgba(0,0,0,.45);
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--paper); color:var(--ink); font-family:var(--body);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1120px; margin:0 auto; padding:0 32px;}
+  h1,h2,h3{font-family:var(--disp); font-weight:400; text-wrap:balance; margin:0;}
+  a{color:inherit;}
+  code, .mono{font-family:var(--mono);}
+
+  /* ---- top nav ---- */
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:28px 0; border-bottom:1px solid var(--line);
+  }
+  .nav .wordmark{font-family:var(--disp); font-size:22px; letter-spacing:.01em;}
+  .nav .links{display:flex; gap:28px; font-size:14px; font-weight:600;}
+  .nav .links a{text-decoration:none; color:var(--ink-soft); border-bottom:1px solid transparent; padding-bottom:2px; transition:border-color .15s, color .15s;}
+  .nav .links a:hover, .nav .links a:focus-visible{color:var(--ink); border-color:var(--amber);}
+
+  /* ---- hero ---- */
+  .hero{
+    display:grid; grid-template-columns:minmax(0,600px) 1fr; gap:64px;
+    align-items:center; padding:88px 0 96px;
+  }
+  .hero .eyebrow{
+    font-family:var(--mono); font-size:13px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--amber); font-weight:500; margin-bottom:18px; display:block;
+  }
+  .hero h1{font-size:clamp(40px,5vw,58px); line-height:1.04; letter-spacing:-.01em;}
+  .hero h1 em{font-style:italic; color:var(--amber);}
+  .hero p.lede{
+    font-size:19px; line-height:1.6; color:var(--ink-soft); margin:26px 0 0; max-width:52ch;
+  }
+  .cta-row{display:flex; gap:14px; margin-top:36px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:9px; font-family:var(--body); font-weight:700;
+    font-size:15px; padding:13px 24px; border-radius:3px; text-decoration:none;
+    border:1px solid transparent; transition:transform .12s ease, box-shadow .12s ease;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-primary{background:var(--amber); color:var(--amber-ink); box-shadow:0 10px 24px rgba(200,121,30,.30);}
+  .btn-primary:hover{box-shadow:0 14px 30px rgba(200,121,30,.40);}
+  .btn-ghost{border-color:var(--line); color:var(--ink);}
+  .btn-ghost:hover{border-color:var(--ink-soft);}
+  .hero .meta-line{margin-top:16px; font-size:13px; color:var(--muted); font-family:var(--mono);}
+
+  /* ---- mini slide mockups (real theme tokens) ---- */
+  .fan{position:relative; width:100%; height:260px;}
+  .mini{
+    position:absolute; width:230px; aspect-ratio:16/9; border-radius:6px; overflow:hidden;
+    box-shadow:var(--shadow); border:1px solid rgba(0,0,0,.06);
+    display:flex; flex-direction:column; transition:transform .2s ease, box-shadow .2s ease, z-index .2s;
+  }
+  .mini:hover{transform:translateY(-6px) rotate(0deg) !important; z-index:10 !important; box-shadow:0 30px 70px rgba(20,22,28,.28);}
+  .mini .bar{flex:none;}
+  .mini .body{flex:1; display:flex; flex-direction:column; justify-content:center; padding:0 20px;}
+  .mini .t{font-weight:700; line-height:1.1;}
+  .mini .s{margin-top:6px; text-transform:uppercase; letter-spacing:.06em;}
+
+  .mi-corporate{ left:0; top:26px; transform:rotate(-7deg); z-index:1; background:#fff; font-family:"Inter",sans-serif;}
+  .mi-corporate .bar{height:5px; background:#2563eb;}
+  .mi-corporate .t{color:#101114; font-size:16px;}
+  .mi-corporate .s{color:#8a9099; font-size:9px;}
+
+  .mi-minimal{ left:80px; top:6px; transform:rotate(-2deg); z-index:2; background:#fff; font-family:"Helvetica Neue",Arial,sans-serif;}
+  .mi-minimal .bar{height:0;}
+  .mi-minimal .t{color:#111111; font-size:16px;}
+  .mi-minimal .s{color:#8a8a8a; font-size:9px;}
+
+  .mi-darktech{ left:160px; top:22px; transform:rotate(3deg); z-index:3;
+    background:radial-gradient(circle at 100% 0%,#132226 0%,#060b0c 60%,#000 100%); font-family:"JetBrains Mono",monospace;}
+  .mi-darktech .bar{height:3px; background:linear-gradient(90deg,#22d3ee,#6366f1);}
+  .mi-darktech .t{color:#e6faff; font-size:14px;}
+  .mi-darktech .s{color:#a8c4cc; font-size:8px;}
+
+  .mi-warm{ left:240px; top:0; transform:rotate(8deg); z-index:4; background:#fbf6ee; font-family:Georgia,serif;}
+  .mi-warm .bar{height:3px; background:#c2542c;}
+  .mi-warm .t{color:#2b2420; font-size:16px;}
+  .mi-warm .s{color:#948578; font-size:9px;}
+
+  /* ---- sections ---- */
+  section{padding:96px 0;}
+  section.border-t{border-top:1px solid var(--line);}
+  .kicker{
+    font-family:var(--mono); font-size:13px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--amber); font-weight:500; margin:0 0 16px;
+  }
+  .section-head{display:grid; grid-template-columns:minmax(0,420px) 1fr; gap:64px; margin-bottom:56px;}
+  .section-head h2{font-size:clamp(28px,3vw,36px); line-height:1.15;}
+  .section-head p{font-size:16px; line-height:1.65; color:var(--ink-soft); margin:0; max-width:48ch;}
+
+  /* ---- proof: markdown -> deck ---- */
+  .proof{display:grid; grid-template-columns:1fr 1fr; gap:36px; align-items:stretch;}
+  .code-panel, .out-panel{
+    border:1px solid var(--card-line); border-radius:8px; background:var(--card);
+    overflow:hidden;
+  }
+  .panel-label{
+    font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--muted); padding:14px 20px; border-bottom:1px solid var(--card-line);
+  }
+  .code-panel pre{
+    margin:0; padding:22px 20px; font-family:var(--mono); font-size:13px; line-height:1.75;
+    color:var(--ink-soft); overflow-x:auto; white-space:pre;
+  }
+  .code-panel .kw{color:var(--amber);}
+  .code-panel .str{color:var(--ink);}
+  .out-panel .out-body{padding:26px 24px;}
+  .out-panel .out-title{font-family:var(--disp); font-size:26px; margin-bottom:18px; color:var(--ink);}
+  .stat-row{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
+  .stat{border:1px solid var(--card-line); border-radius:6px; padding:16px 14px;}
+  .stat .v{font-family:var(--disp); font-size:28px; color:var(--ink);}
+  .stat .l{font-size:11px; color:var(--muted); margin-top:4px; letter-spacing:.03em;}
+
+  /* ---- themes ---- */
+  .theme-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
+  .theme-card{border:1px solid var(--card-line); border-radius:8px; overflow:hidden; background:var(--card);}
+  .theme-preview{aspect-ratio:16/10; display:flex; flex-direction:column;}
+  .theme-preview .bar{flex:none;}
+  .theme-preview .tb{flex:1; display:flex; flex-direction:column; justify-content:center; padding:0 18px;}
+  .theme-preview .tt{font-weight:700; font-size:15px; line-height:1.1;}
+  .theme-preview .ts{font-size:9px; margin-top:6px; text-transform:uppercase; letter-spacing:.05em;}
+  .theme-meta{padding:16px 18px 20px;}
+  .theme-meta .name{font-weight:700; font-size:15px;}
+  .theme-meta .front{
+    display:block; margin-top:6px; font-family:var(--mono); font-size:12px; color:var(--muted);
+  }
+  .theme-meta .desc{margin-top:10px; font-size:13px; line-height:1.55; color:var(--ink-soft);}
+
+  .tp-corporate{background:#fff; font-family:"Inter",sans-serif;}
+  .tp-corporate .bar{height:5px; background:#2563eb;}
+  .tp-corporate .tt{color:#101114;} .tp-corporate .ts{color:#8a9099;}
+
+  .tp-minimal{background:#fff; font-family:"Helvetica Neue",Arial,sans-serif;}
+  .tp-minimal .bar{height:0;}
+  .tp-minimal .tt{color:#111;} .tp-minimal .ts{color:#8a8a8a;}
+
+  .tp-darktech{background:radial-gradient(circle at 100% 0%,#132226 0%,#060b0c 60%,#000 100%); font-family:"JetBrains Mono",monospace;}
+  .tp-darktech .bar{height:3px; background:linear-gradient(90deg,#22d3ee,#6366f1);}
+  .tp-darktech .tt{color:#e6faff;} .tp-darktech .ts{color:#a8c4cc;}
+
+  .tp-warm{background:#fbf6ee; font-family:Georgia,serif;}
+  .tp-warm .bar{height:3px; background:#c2542c;}
+  .tp-warm .tt{color:#2b2420;} .tp-warm .ts{color:#948578;}
+
+  /* ---- slide type chips ---- */
+  .chips{display:flex; flex-wrap:wrap; gap:8px;}
+  .chip{
+    font-family:var(--mono); font-size:12.5px; padding:7px 12px; border:1px solid var(--line);
+    border-radius:3px; color:var(--ink-soft); background:var(--card);
+  }
+
+  /* ---- universal / any tool ---- */
+  .tool-row{display:flex; flex-wrap:wrap; gap:14px 40px; margin-top:8px;}
+  .tool{font-family:var(--disp); font-size:20px; color:var(--ink-soft); font-style:italic;}
+  .tool b{font-style:normal; color:var(--ink); font-weight:400;}
+  .req-line{
+    margin-top:36px; padding:20px 22px; border:1px dashed var(--line); border-radius:8px;
+    font-family:var(--mono); font-size:13px; color:var(--ink-soft); line-height:1.7;
+  }
+
+  /* ---- install ---- */
+  .install-panel{
+    border:1px solid var(--card-line); border-radius:8px; background:var(--card);
+    padding:8px 0; overflow:hidden;
+  }
+  .install-panel .line{
+    display:flex; align-items:center; gap:14px; padding:14px 24px; font-family:var(--mono); font-size:14px;
+  }
+  .install-panel .line + .line{border-top:1px solid var(--card-line);}
+  .install-panel .prompt{color:var(--amber); flex:none;}
+  .install-panel .comment{color:var(--muted);}
+
+  /* ---- footer ---- */
+  footer{border-top:1px solid var(--line); padding:56px 0 72px;}
+  .foot-grid{display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:40px;}
+  footer h4{
+    font-family:var(--mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--muted); margin:0 0 14px; font-weight:500;
+  }
+  footer p, footer a{font-size:14px; line-height:1.7; color:var(--ink-soft); text-decoration:none;}
+  footer a:hover{color:var(--ink);}
+  footer .fine{margin-top:40px; font-size:12.5px; color:var(--muted); font-family:var(--mono);}
+
+  @media (max-width:860px){
+    .hero{grid-template-columns:1fr; gap:56px;}
+    .section-head{grid-template-columns:1fr; gap:20px;}
+    .proof{grid-template-columns:1fr;}
+    .theme-grid{grid-template-columns:repeat(2,1fr);}
+    .foot-grid{grid-template-columns:1fr; gap:28px;}
+    .fan{height:220px;}
+  }
+  @media (max-width:520px){
+    .theme-grid{grid-template-columns:1fr;}
+    .wrap{padding:0 20px;}
+  }
+</style>
+
+<div class="wrap">
+  <div class="nav">
+    <div class="wordmark">Deck&nbsp;Craft</div>
+    <div class="links">
+      <a href="https://github.com/andyh102/deck-craft">Source</a>
+      <a href="https://github.com/andyh102/deck-craft/blob/main/SKILL.md">Docs</a>
+      <a href="https://github.com/andyh102/deck-craft/releases/latest/download/deck-craft.zip">Download</a>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div>
+      <span class="eyebrow">Free · Open source · MIT</span>
+      <h1>Write a <em>deck.md</em>.<br>Get a deck.</h1>
+      <p class="lede">
+        Deck Craft turns a plain-text Markdown file into a polished, self-contained
+        HTML presentation — 31 slide types, four built-in visual themes, and an
+        optional PowerPoint/PDF export. No server, no account, no dependency
+        beyond Python 3's standard library.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://github.com/andyh102/deck-craft/releases/latest/download/deck-craft.zip">↓ Download v1.0.0</a>
+        <a class="btn btn-ghost" href="https://github.com/andyh102/deck-craft">View source</a>
+      </div>
+      <div class="meta-line">deck-craft.zip · ~350KB · unzip and run</div>
+    </div>
+    <div class="fan">
+      <div class="mini mi-corporate"><div class="bar"></div><div class="body"><div class="t">Tech Workstream</div><div class="s">Quarterly Review</div></div></div>
+      <div class="mini mi-minimal"><div class="bar"></div><div class="body"><div class="t">Tech Workstream</div><div class="s">Quarterly Review</div></div></div>
+      <div class="mini mi-darktech"><div class="bar"></div><div class="body"><div class="t">Tech Workstream</div><div class="s">Quarterly Review</div></div></div>
+      <div class="mini mi-warm"><div class="bar"></div><div class="body"><div class="t">Tech Workstream</div><div class="s">Quarterly Review</div></div></div>
+    </div>
+  </div>
+</div>
+
+<section class="border-t">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>One file in, one file out.</h2>
+      <p>A deck is front matter plus one block per slide, separated by <code>---</code>. Save it, run <code>build.py</code>, get a portable <code>.html</code> you can present from any browser.</p>
+    </div>
+    <div class="proof">
+      <div class="code-panel">
+        <div class="panel-label">deck.md</div>
+        <pre><span class="kw">type:</span> stats
+<span class="kw">title:</span> <span class="str">Key Metrics</span>
+- $3.2M :: Annual Revenue :: +24% YoY
+- 204 :: New Customers :: +73% vs Q1
+- 74 :: NPS Score :: World-class</pre>
+      </div>
+      <div class="out-panel">
+        <div class="panel-label">deck.html — rendered</div>
+        <div class="out-body">
+          <div class="out-title">Key Metrics</div>
+          <div class="stat-row">
+            <div class="stat"><div class="v">$3.2M</div><div class="l">ANNUAL REVENUE</div></div>
+            <div class="stat"><div class="v">204</div><div class="l">NEW CUSTOMERS</div></div>
+            <div class="stat"><div class="v">74</div><div class="l">NPS SCORE</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="border-t">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Four themes. One accent to override.</h2>
+      <p>Set <code>theme:</code> in front matter and every token — palette, font, panels, the top bar — changes together. <code>accent:</code> and <code>font:</code> still override just those two on top.</p>
+    </div>
+    <div class="theme-grid">
+      <div class="theme-card">
+        <div class="theme-preview tp-corporate"><div class="bar"></div><div class="tb"><div class="tt">Tech Workstream</div><div class="ts">Quarterly Review</div></div></div>
+        <div class="theme-meta"><div class="name">Corporate</div><span class="front">theme: corporate</span><div class="desc">Clean white deck, blue accent, dark navy cover &amp; section slides. The default.</div></div>
+      </div>
+      <div class="theme-card">
+        <div class="theme-preview tp-minimal"><div class="tb"><div class="tt">Tech Workstream</div><div class="ts">Quarterly Review</div></div></div>
+        <div class="theme-meta"><div class="name">Minimal Mono</div><span class="front">theme: minimal-mono</span><div class="desc">Grayscale, flat panels, no top bar at all. Understated and text-forward.</div></div>
+      </div>
+      <div class="theme-card">
+        <div class="theme-preview tp-darktech"><div class="bar"></div><div class="tb"><div class="tt">Tech Workstream</div><div class="ts">Quarterly Review</div></div></div>
+        <div class="theme-meta"><div class="name">Dark Tech</div><span class="front">theme: dark-tech</span><div class="desc">Dark throughout, indigo/cyan accent, monospace type. Engineering reviews.</div></div>
+      </div>
+      <div class="theme-card">
+        <div class="theme-preview tp-warm"><div class="bar"></div><div class="tb"><div class="tt">Tech Workstream</div><div class="ts">Quarterly Review</div></div></div>
+        <div class="theme-meta"><div class="name">Warm Editorial</div><span class="front">theme: warm-editorial</span><div class="desc">Cream background, serif type, terracotta accent. Narrative, story-led decks.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="border-t">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>31 slide types, chosen for meaning.</h2>
+      <p>Cover and section dividers, RAG status trackers, delivery-plan Gantt charts, org charts, feature matrices — the full vocabulary of a real deck, not just bullets.</p>
+    </div>
+    <div class="chips">
+      <span class="chip">cover</span><span class="chip">section</span><span class="chip">agenda</span>
+      <span class="chip">bullets</span><span class="chip">two-col-bullets</span><span class="chip">cards-3</span>
+      <span class="chip">cards-4</span><span class="chip">grid-2x2</span><span class="chip">grid-3x2</span>
+      <span class="chip">flow-h</span><span class="chip">flow-v</span><span class="chip">table</span>
+      <span class="chip">stats</span><span class="chip">quote</span><span class="chip">text-image</span>
+      <span class="chip">image-full</span><span class="chip">image-2col</span><span class="chip">image-3col</span>
+      <span class="chip">timeline</span><span class="chip">two-col-text</span><span class="chip">status</span>
+      <span class="chip">bar-chart</span><span class="chip">callout</span><span class="chip">org-chart</span>
+      <span class="chip">statement</span><span class="chip">team</span><span class="chip">matrix</span>
+      <span class="chip">glossary</span><span class="chip">roadmap-swimlane</span><span class="chip">delivery-plan</span>
+      <span class="chip">closing</span>
+    </div>
+  </div>
+</section>
+
+<section class="border-t">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Not a Claude plugin. A universal skill.</h2>
+      <p>It's a folder: plain-English instructions in <code>SKILL.md</code>, and a builder that's pure Python standard library. Anything that can read a file and run Python can use it.</p>
+    </div>
+    <div class="tool-row">
+      <span class="tool"><b>Claude Code</b> — copy into ~/.claude/skills</span>
+      <span class="tool"><b>Cursor</b> / <b>Windsurf</b> — open the folder, ask</span>
+      <span class="tool"><b>ChatGPT</b> / <b>Claude.ai</b> — upload &amp; ask</span>
+      <span class="tool">or any other agent</span>
+    </div>
+    <div class="req-line">
+      the whole contract: <span style="color:var(--ink)">can read text files</span> + <span style="color:var(--ink)">can run a Python 3 script</span>.<br>
+      no API keys · no accounts · no network calls · everything runs on your machine
+    </div>
+  </div>
+</section>
+
+<section class="border-t">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Get it running.</h2>
+      <p>Unzip, then build the worked example to see all 31 slide types, or start from the blank template.</p>
+    </div>
+    <div class="install-panel">
+      <div class="line"><span class="prompt">$</span> unzip deck-craft.zip &amp;&amp; cd deck-craft</div>
+      <div class="line"><span class="prompt">$</span> python3 build.py example-deck.md <span class="comment"># writes example-deck.html</span></div>
+      <div class="line"><span class="prompt">$</span> open example-deck.html <span class="comment"># or double-click it</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>Deck Craft</h4>
+        <p>A Markdown-to-slide-deck builder. Free and open source under the MIT license — use it, modify it, ship it commercially.</p>
+      </div>
+      <div>
+        <h4>Project</h4>
+        <p><a href="https://github.com/andyh102/deck-craft">Source on GitHub</a></p>
+        <p><a href="https://github.com/andyh102/deck-craft/blob/main/SKILL.md">Full documentation</a></p>
+        <p><a href="https://github.com/andyh102/deck-craft/blob/main/LICENSE">MIT License</a></p>
+        <p><a href="https://github.com/andyh102/deck-craft/blob/main/lib/THIRD_PARTY_NOTICES.md">Third-party notices</a></p>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <p>Deck Craft costs nothing and always will. If it saves you time, a Buy&nbsp;Me&nbsp;a&nbsp;Coffee link will live here shortly — nothing on this page is ever gated behind it.</p>
+      </div>
+    </div>
+    <div class="fine">© 2026 Andy Hudson · MIT licensed</div>
+  </div>
+</footer>
