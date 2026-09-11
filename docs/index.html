@@ -42,9 +42,9 @@
     display:flex; align-items:center; position:sticky; top:0; z-index:5;}
   header .wrap{display:flex; align-items:center; justify-content:space-between; width:100%;}
   .nav-links{display:flex; align-items:center; gap:28px;}
-  .nav-links a{font-size:15px; color:var(--dc-text-body); text-decoration:none;
+  .nav-links a:not(.pill){font-size:15px; color:var(--dc-text-body); text-decoration:none;
     transition:color .16s ease-out;}
-  .nav-links a:hover, .nav-links a:focus-visible{color:var(--dc-terracotta-strong);}
+  .nav-links a:not(.pill):hover, .nav-links a:not(.pill):focus-visible{color:var(--dc-terracotta-strong);}
   .pill{display:inline-flex; align-items:center; gap:8px; font-family:var(--dc-font-ui);
     font-weight:600; font-size:14px; padding:13px 24px; border-radius:999px; text-decoration:none;
     border:none; transition:background-color .16s ease-out, border-color .16s ease-out; cursor:pointer;}
