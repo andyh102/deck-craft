@@ -42,6 +42,39 @@ instructions in `SKILL.md` are written for an AI to follow, not just a human.
 
 No API keys, no accounts, no network calls — everything happens locally.
 
+## Kick-off prompt
+
+Once your assistant can see this folder, paste this in and fill the brackets:
+
+```
+Read SKILL.md in this folder, then build me a slide deck.
+
+Topic: [what the deck is about]
+Audience: [who it's for, and what they should do after]
+Length: [tight ~8 slides, or a fuller ~14]
+Style: [a theme name like modern or warm — or describe the mood]
+
+Here's what I have so far:
+[paste notes, a doc, or key numbers]
+```
+
+It'll draft a `deck.md` for you to review before running `build.py`.
+
+**Tips for a better deck:**
+
+1. **Paste your raw material first** — notes, a doc, data, a ticket. Richer
+   input beats a short description; let the assistant structure it.
+2. **Say who it's for and what they should do after** — that decides the tone
+   and which recipe (review, pitch, kickoff, retro) fits.
+3. **Give real numbers, not placeholders** — the assistant can't invent your
+   KPIs, dates, or names.
+4. **Name a rough length** — "tight" or "fuller" is enough; open-ended briefs
+   tend to sprawl.
+5. **Describe the mood if you don't know a theme by name** — "dark and techy"
+   or "warm and personal" works as well as the theme id.
+6. **Review the drafted `deck.md` before building** — it's plain text, so
+   tweaking it is faster than regenerating.
+
 ## Themes
 
 Set `theme:` in a deck's front matter. `accent:` / `font:` still override just

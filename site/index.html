@@ -131,6 +131,29 @@
   .req-line{margin-top:28px; padding:18px 20px; border:1px dashed var(--dc-border); border-radius:12px;
     font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--dc-text-body); line-height:1.7;}
 
+  /* ---- kick-off prompt ---- */
+  .prompt-box{border:1px solid var(--dc-border-soft); border-radius:16px; background:var(--dc-white);
+    overflow:hidden;}
+  .prompt-box-head{display:flex; align-items:center; justify-content:space-between; gap:12px;
+    padding:14px 20px; border-bottom:1px solid var(--dc-divider);
+    font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--dc-text-caption);}
+  .copy-btn{font-family:var(--dc-font-ui); font-weight:600; font-size:12.5px;
+    color:var(--dc-terracotta-strong); background:none; border:1px solid #E0D2C2; cursor:pointer;
+    padding:6px 12px; border-radius:999px; text-transform:none; letter-spacing:0;
+    transition:background-color .16s ease-out, border-color .16s ease-out;}
+  .copy-btn:hover{background:var(--dc-oat); border-color:var(--dc-terracotta);}
+  .prompt-box pre{margin:0; padding:20px; font-family:'IBM Plex Mono',monospace; font-size:13px;
+    line-height:1.8; color:var(--dc-text-body); white-space:pre-wrap;}
+  .prompt-box pre .ph{color:var(--dc-terracotta-strong);}
+
+  .tips-list{list-style:none; margin:28px 0 0; padding:0; display:flex; flex-direction:column; gap:16px;}
+  .tips-list li{display:flex; gap:14px; align-items:flex-start; font-family:var(--dc-font-ui);
+    font-size:15px; line-height:1.6; color:var(--dc-text-body);}
+  .tips-list .num{flex:none; width:22px; height:22px; border-radius:50%; background:var(--dc-oat);
+    color:var(--dc-terracotta-strong); font-family:var(--dc-font-ui); font-size:11px; font-weight:600;
+    display:flex; align-items:center; justify-content:center; margin-top:2px;}
+
   /* ---- install ---- */
   .install-panel{border:1px solid var(--dc-border-soft); border-radius:16px; background:var(--dc-white);
     overflow:hidden;}
@@ -364,6 +387,40 @@
   </section>
 
   <section>
+    <div class="eyebrow">Kick-off prompt</div>
+    <h2 style="font-size:30px; margin-bottom:8px;">One prompt to start.</h2>
+    <p style="font-family:var(--dc-font-ui); font-size:15px; color:var(--dc-text-body); max-width:56ch; margin:8px 0 24px;">
+      Paste this into whichever assistant you pointed at the folder, fill in
+      the brackets, and it'll draft a <code>deck.md</code> for you to review
+      before building &#8212; see "Get it running" below for the raw commands.
+    </p>
+    <div class="prompt-box">
+      <div class="prompt-box-head">
+        <span>Paste to your AI assistant</span>
+        <button class="copy-btn" type="button" onclick="dcCopyPrompt(this)">Copy</button>
+      </div>
+      <pre id="kickoff-prompt">Read SKILL.md in this folder, then build me a slide deck.
+
+Topic: <span class="ph">[what the deck is about]</span>
+Audience: <span class="ph">[who it's for, and what they should do after]</span>
+Length: <span class="ph">[tight ~8 slides, or a fuller ~14]</span>
+Style: <span class="ph">[a theme name like modern or warm &#8212; or describe the mood]</span>
+
+Here's what I have so far:
+<span class="ph">[paste notes, a doc, or key numbers]</span></pre>
+    </div>
+
+    <ol class="tips-list">
+      <li><span class="num">1</span>Paste your raw material first &#8212; notes, a doc, data, a ticket. Richer input beats a short description; let the assistant structure it.</li>
+      <li><span class="num">2</span>Say who it's for and what they should do after &#8212; that decides the tone and which recipe (review, pitch, kickoff, retro) fits.</li>
+      <li><span class="num">3</span>Give real numbers, not placeholders &#8212; the assistant can't invent your KPIs, dates, or names.</li>
+      <li><span class="num">4</span>Name a rough length &#8212; &#8220;tight&#8221; or &#8220;fuller&#8221; is enough; open-ended briefs tend to sprawl.</li>
+      <li><span class="num">5</span>Describe the mood if you don't know a theme by name &#8212; &#8220;dark and techy&#8221; or &#8220;warm and personal&#8221; works as well as the theme id.</li>
+      <li><span class="num">6</span>Review the drafted <code>deck.md</code> before building &#8212; it's plain text, so tweaking it is faster than regenerating.</li>
+    </ol>
+  </section>
+
+  <section>
     <div class="eyebrow">Get it running</div>
     <h2 style="font-size:30px; margin-bottom:24px;">Unzip. Build the example. Go.</h2>
     <div class="install-panel">
@@ -405,5 +462,22 @@
     <div class="fine">&#169; 2026 Andy Hudson &#183; MIT licensed &#183; free to use, always</div>
   </div>
 </footer>
+<script>
+function dcCopyPrompt(btn){
+  var el = document.getElementById('kickoff-prompt');
+  var text = el.innerText;
+  var orig = btn.textContent;
+  function settle(label){
+    btn.textContent = label;
+    setTimeout(function(){ btn.textContent = orig; }, 1800);
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(function(){ settle('Copied'); })
+      .catch(function(){ settle('Select & copy'); });
+  } else {
+    settle('Select & copy');
+  }
+}
+</script>
 </body>
 </html>
