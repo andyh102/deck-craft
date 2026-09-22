@@ -57,16 +57,13 @@
 
   /* ---- sections / rhythm ---- */
   section{padding:64px 0;}
-  @media (max-width:640px){ section{padding:40px 0;} }
   .eyebrow{font-family:var(--dc-font-ui); font-size:11px; font-weight:600; letter-spacing:.16em;
     text-transform:uppercase; color:var(--dc-terracotta-strong); margin:0 0 12px;}
   .caption{font-family:var(--dc-font-ui); font-size:12px; color:var(--dc-text-caption);}
 
   /* ---- hero ---- */
   .hero-panel{background:var(--dc-oat); border-radius:20px; padding:64px;}
-  @media (max-width:640px){ .hero-panel{padding:32px;} }
   .hero-panel h1{font-size:42px;}
-  @media (max-width:640px){ .hero-panel h1{font-size:32px;} }
   .hero-panel .lede{font-family:var(--dc-font-ui); font-size:16px; line-height:1.68;
     color:var(--dc-text-muted); max-width:52ch; margin:16px 0 32px;}
   .hero-cta{display:flex; flex-wrap:wrap; gap:14px; align-items:center;}
@@ -104,8 +101,11 @@
   /* ---- style strip ---- */
   .strip-head{display:flex; align-items:baseline; justify-content:space-between; margin-bottom:24px;
     flex-wrap:wrap; gap:8px;}
+  /* The strip bleeds into the page gutter so cards can scroll edge to edge.
+     scroll-padding-left must match the inset, or snapping pulls the first
+     card flush to the scrollport and it loses its gutter alignment. */
   .strip{display:flex; gap:24px; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:8px;
-    margin:0 -24px; padding-left:24px; padding-right:24px;}
+    margin:0 -24px; padding-left:24px; padding-right:24px; scroll-padding-left:24px;}
   .style-card{flex:none; width:320px; scroll-snap-align:start; border:1px solid #E0DBD1;
     border-radius:16px; overflow:hidden; background:var(--dc-white); transition:border-color .16s ease-out;}
   .style-card:hover{border-color:var(--dc-terracotta);}
@@ -165,7 +165,6 @@
 
   /* ---- tip band ---- */
   .tip-band{background:var(--dc-charcoal); border-radius:20px; padding:48px;}
-  @media (max-width:640px){ .tip-band{padding:28px;} }
   .tip-band h2{color:var(--dc-text-on-dark); font-size:30px;}
   .tip-band p{font-family:var(--dc-font-ui); font-size:15px; line-height:1.68;
     color:var(--dc-text-on-dark-muted); max-width:48ch; margin:14px 0 28px;}
@@ -178,6 +177,37 @@
   .foot-links a{font-size:12px; color:var(--dc-text-caption); text-decoration:none;}
   .foot-links a:hover{color:var(--dc-terracotta-strong);}
   .fine{margin-top:24px; font-size:12px; color:var(--dc-text-caption); font-family:'IBM Plex Mono',monospace;}
+
+  /* ---- mobile (the brand system's 640px breakpoint) ---- */
+  @media (max-width:640px){
+    .wrap{padding:0 20px;}
+    section{padding:40px 0;}
+
+    /* Header carries the lockup and one action only — the section anchors
+       wrap into an unreadable clump at this width. */
+    header{height:auto; padding:14px 0;}
+    .nav-links a:not(.pill){display:none;}
+
+    /* Centre the page's own voice. Body copy inside cards, code blocks and
+       the numbered tips stays left-aligned — centred paragraphs don't read. */
+    section > .eyebrow, section > h2, section > p{text-align:center;}
+    .hero-panel{padding:32px; text-align:center;}
+    .hero-panel h1{font-size:32px;}
+    .strip-head{justify-content:center; text-align:center;}
+    .strip{margin:0 -20px; padding-left:20px; padding-right:20px; scroll-padding-left:20px;}
+    .chips, .tool-row{justify-content:center;}
+    .tool-row, .req-line{text-align:center;}
+    .tip-band{padding:28px; text-align:center;}
+    .tip-band p{margin-left:auto; margin-right:auto;}
+    .tip-band-row{justify-content:center;}
+    footer .lockup, .foot-row, .foot-links{justify-content:center;}
+    .foot-row, .fine{text-align:center;}
+
+    /* Buttons go full width (brand spec). */
+    .hero-cta, .tip-band-row{flex-direction:column; align-items:stretch;}
+    .hero-cta .pill, .tip-band-row .pill{justify-content:center;}
+    .hero-meta{text-align:center;}
+  }
 </style>
 </head>
 <body>
@@ -456,6 +486,7 @@ Here's what I have so far:
       <div class="foot-links">
         <a href="https://github.com/andyh102/deck-craft">Source on GitHub</a>
         <a href="https://github.com/andyh102/deck-craft/blob/main/SKILL.md">Documentation</a>
+        <a href="https://buymeacoffee.com/deckcraft" target="_blank" rel="noopener">Buy me a coffee</a>
         <a href="https://github.com/andyh102/deck-craft/blob/main/LICENSE">MIT License</a>
         <a href="https://github.com/andyh102/deck-craft/blob/main/lib/THIRD_PARTY_NOTICES.md">Third-party notices</a>
       </div>
